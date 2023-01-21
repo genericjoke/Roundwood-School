@@ -1,0 +1,99 @@
+html {
+    padding:0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+	background: linear-gradient(-45deg, #cfbfba, #cab4bd, #c2d0d4, #b7c9c4);
+	background-size: 400% 400%;
+	animation: gradient 80s ease infinite;
+	height: 100vh;
+    width: 100%;
+    position: fixed;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#game-view {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    margin: 1%;
+    left: 5%;
+    top: 5%;
+    position: relative;
+    background-color: black;
+    width: 30%;
+    height: 30%;
+}
+
+
+#top-player-display {
+    position: relative;
+    display: inline-block;
+    width: 11%;
+    left: 17%;
+    border-style: solid;
+    border:#b7c9c4;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 80%;
+    scroll-behavior:smooth scroll;
+    box-shadow: inset 0 0 10px #0e0d0d62;
+    box-shadow: inset 0 0 20px #0e0d0d62;
+    padding: 1.5%;
+    border-radius: 50px;
+    padding-top: 0px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 5%
+}
+
+
+
+.top-five-player {
+    font-size: 12px;
+    display: grid;
+    text-align: left;
+    padding: 3%;
+    border-radius: 7px;
+    color:rgb(245, 187, 27);
+    background-color: rgba(22, 28, 28, 0.664); 
+    list-style: none;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+
+}
+
+.avatar {
+    display: ;
+    position: relative;
+    height: 4rem;
+    width: 4rem;
+    margin: 3rem;
+    border-radius: 30px;
+    background-color: rgb(235, 187, 57);
+    margin-bottom: 0.3rem;
+    margin-top: 3rem;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}

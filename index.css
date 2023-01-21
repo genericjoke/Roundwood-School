@@ -86,7 +86,7 @@ body {
 }
 
 .avatar {
-    display: ;
+    display: inline-block;
     position: relative;
     height: 4rem;
     width: 4rem;

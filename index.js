@@ -33,6 +33,7 @@ function getCallRecords(){
 function sortRecords(records) {
     /// sorts the record. Idt we need top 5. The div will reset to the top but all players will be listed, lower scores hidden
     const topFive = records.sort((a, b) => b.score - a.score);
+    console.log(topFive)
         topFive.forEach((player) => {
         
             const playerContainer = document.createElement("div")
@@ -62,6 +63,8 @@ function sortRecords(records) {
             topPlayerDisplay.append(playerAvatar, playerContainer)
     })
 }
+
+//Areeb blah
 
 
 

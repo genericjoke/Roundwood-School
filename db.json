@@ -39,7 +39,22 @@
 ],
 
 
-"characters": {},
+"class": [
+    {
+    "id" : 1,
+    "name": "Nick Solo",
+    "image": "https://www.clipartmax.com/png/middle/31-314946_star-wars-vector-star-wars-gun-icon.png",
+    "prog" : "0",
+    "bo" : "3"
+    },
+    {
+    "id" : 2,
+    "name" : "Gehrig",
+    "image" : "https://image.similarpng.com/very-thumbnail/2022/07/Monochrome-moustache-icon-isolated-on-transparent-background-PNG.png",
+    "prog" : "5",
+    "bo" : "7"
+    }
+],
 
 
 "records": [

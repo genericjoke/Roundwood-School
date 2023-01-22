@@ -15,7 +15,7 @@
 //     .then()
 // }
 
-getCallRecords();
+
 
 ////// Records / top score section///////////////////////////////
 
@@ -24,13 +24,14 @@ function getCallRecords() {
     .then((response) => response.json())
     .then((data) => sortRecords(data));
 }
+getCallRecords();
 
 function sortRecords(records) {
   /// sorts the record. Idt we need top 5. The div will reset to the top but all players will be listed, lower scores hidden
     const topFive = records.sort((a, b) => b.score - a.score);
     topFive.forEach((player) => {
-    const playerContainer = document.createElement("div");
-    playerContainer.className = "top-five-player";
+    const playerStatContainer = document.createElement("div");
+    playerStatContainer.className = "top-five-player";
 
     const playerAvatar = document.createElement("img");
     playerAvatar.src = player.image;
@@ -50,17 +51,36 @@ function sortRecords(records) {
     playerBo.textContent = `Burnout: ${player.bo}`;
 
     //build player div ".top-five-player" & push to DOM "#top-five-display"
-    playerContainer.append(playerName, playerScore, playerProg, playerBo);
+    playerStatContainer.append(playerName, playerScore, playerProg, playerBo);
     const topPlayerDisplay = document.querySelector("#top-player-display");
     topPlayerDisplay.scrollTop = 0; //resets scroll to top, on refresh only unfortunately.
-    topPlayerDisplay.append(playerAvatar, playerContainer);
+    const topContainer = document.createElement("div");
+    topContainer.className = "top-container";
+    topContainer.append(playerAvatar, playerStatContainer);
+    topPlayerDisplay.append(topContainer);
     });
+}
+
+////////////////////////selecting class section ///////////////////////
+
+function getCallClass() {
+    fetch("http://localhost:3000/classes")
+    .then((response) => response.json())
+    .then((data) => renderClassOption(data));
+}
+getCallClass();
+
+function renderClassOption(classes) {
+    const classContainer = document.createElement("div");
+    classContainer.className = "class-container";
+
+    class classIcon = document.createElement("img");
+    
 }
 
 
 
-
-
+////////////////////////home page section////////////////////////
 function getHomeButton() {
     const playButton = document.createElement("button");
     playButton.textContent = "Start New Game";
@@ -148,14 +168,14 @@ next.addEventListener("click", () => {
 ///////////////navigating through game setup///////////////
 
 
-const ava1 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png"
-const ava2 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-02.png"
-const ava3 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-03.png"
-const ava4 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-04.png"
-const ava5 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-05.png"
-const ava6 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-06.png"
-const ava7 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png"
-const ava8 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png"
+const ava1 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png";
+const ava2 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-02.png";
+const ava3 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-03.png";
+const ava4 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-04.png";
+const ava5 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-05.png";
+const ava6 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-06.png";
+const ava7 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png";
+const ava8 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png";
 function avatarSetup () {
     const avatarDiv = document.querySelector("#avatar-setup");
     avatarDiv.style = "display: block;";

@@ -40,6 +40,8 @@ body {
 
 #gameplay {
     display: block;
+    margin-top: 10%;
+    margin-left: 10%
 }
 
 #game-view {
@@ -53,13 +55,17 @@ body {
     position: relative;
     height: 100%;
     width: 80%;
+    padding: 0;
+    margin: 0;
 }
 
 .testing-display {
     border-style: groove;
-    margin: 5%;
-    padding: 5%;
-    height: 20%;
+    border-color:rgba(22, 28, 28, 0.664);
+    border-radius: 25px;
+    margin: 5px;
+    padding: 5px;
+    height: 40%;
     width: 40%;
     text-align: center;
 }
@@ -79,10 +85,10 @@ body {
 #top-player-display {
     position: relative;
     display: inline-block;
-    width: 11%;
+    width: 30%;
     left: 0%;
+    border-color:rgba(22, 28, 28, 0.664);
     border-style: solid;
-    border:#b7c9c4;
     align-items: center;
     overflow: hidden;
     overflow-y: scroll;
@@ -91,17 +97,23 @@ body {
     box-shadow: inset 0 0 10px #0e0d0d62;
     box-shadow: inset 0 0 20px #0e0d0d62;
     padding: 1.5%;
-    border-radius: 50px;
+    border-radius: 25px;
     padding-top: 0px;
     margin-top: 5%;
     margin-bottom: 5%;
-    margin-right: 5%
+    margin-right: 5%;
+    vertical-align:middle;
 }
+
+.avatar-div:hover, .top-container:hover {
+    transform:scale(1.1);
+}
+
 
 #avatar-options {
     position: relative;
     display: inline-block;
-    max-height: 27rem;
+    max-height: 26rem;
     width: auto;
     /* left: 17%; */
     border-style: solid;
@@ -112,12 +124,8 @@ body {
     scroll-behavior:smooth;
     box-shadow: inset 0 0 10px #0e0d0d62;
     box-shadow: inset 0 0 20px #0e0d0d62;
-    padding: 0%;
-    /* border-radius: 50px; */
-    padding-top: 0px;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    margin-right: 0%;
+    padding: 3%;
+    border-radius: 20px;
     vertical-align: middle;
     scroll-snap-type: proximity;
     scroll-snap-align: start;
@@ -151,38 +159,57 @@ body {
     scroll-snap-align: center;
 }
 
-#avatar-setup {
-    display: inline;
-    position: relative;
-    width: 80%;
+#button-div {
+    vertical-align: middle;
+    padding:0;
+    width:auto;
+
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 0;
     margin: 0;
 }
 
+#avatar-setup {
+    display: inline;
+    position: relative;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+}
 
+.top-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    margin-top:20px;
+    background-color:rgb(235, 187, 57);
+    border-radius: 31px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
 
 
 .top-five-player {
     font-size: 12px;
-    display: grid;
+    position: relative;
+    display: inline-block;
     text-align: left;
-    padding: 3%;
-    border-radius: 7px;
-    color:rgb(245, 187, 27);
-    background-color: rgba(22, 28, 28, 0.664); 
+    color:rgba(22, 28, 28, 0.937); 
     list-style: none;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    margin-left: 10px;
 
 }
 
 .avatar {
     display: inline-block;
     position: relative;
-    height: 4rem;
-    width: 4rem;
-    margin: 3rem;
+    height: 100px;
+    width: 100px;
+    margin: 0rem;
     border-radius: 30px;
     background-color: rgb(235, 187, 57);
-    margin-bottom: 0.3rem;
-    margin-top: 3rem;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+
 }

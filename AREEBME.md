@@ -20,3 +20,10 @@ What we need:
     https://t4.ftcdn.net/jpg/03/34/11/39/360_F_334113986_zAt0T3AjRnJ1TfO9u0u5WWekjiO0Fht5.jpg 
 
 
+
+Open Deliverables
+    1. continue keeps looping tutorial stories.
+    2. how to hide and show messages when a button is clicked
+    3. make display & hid functions
+
+

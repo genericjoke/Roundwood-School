@@ -204,7 +204,7 @@ next.addEventListener("click", () => {
 ///////////////navigating through game setup///////////////
 
 
-const ava1 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png";
+const ava1 = "/home/genericjoke/Development/code/phase-1/Roundwood-School/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png";
 const ava2 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-02.png";
 const ava3 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-03.png";
 const ava4 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-04.png";
@@ -284,8 +284,6 @@ function avatarSetup () {
     avatarOptions.append(div8, div7, div6, div5, div4, div3, div2, div1);
 }
 
-avatarSetup ()
-
 function renderChosenAvatar () {
     const avatarOptions = document.querySelectorAll(".avatar-div");
     avatarOptions.forEach(opt => opt.addEventListener("click", (e) => {
@@ -296,6 +294,6 @@ function renderChosenAvatar () {
     })
 )}
 
-renderChosenAvatar ()
 
-avatarSetup()
+avatarSetup ()
+renderChosenAvatar ()

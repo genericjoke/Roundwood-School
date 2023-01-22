@@ -110,7 +110,9 @@ body {
 }
 
 
-#avatar-options {
+#avatar-options,
+#class-options
+{
     position: relative;
     display: inline-block;
     max-height: 26rem;
@@ -131,7 +133,9 @@ body {
     scroll-snap-align: start;
 }
 
-#chosen-avatar-container {
+#chosen-avatar-container,
+#chosen-class-container
+{
     position: relative;
     display: inline-block;
     width: auto;
@@ -139,13 +143,15 @@ body {
     vertical-align: middle;
 }
 
-#chosen-avatar-icon {
+#chosen-avatar-icon,
+#chosen-class-icon
+{
     vertical-align: middle;
     width: 10;
     height: auto;
 }
 
-.avatar-op {
+.avatar-op, .class-op {
     display: inline-block;
     position: relative;
     height: 8rem;
@@ -172,7 +178,9 @@ body {
     margin: 0;
 }
 
-#avatar-setup {
+#avatar-setup,
+#class-setup
+{
     display: inline;
     position: relative;
     width: 90%;

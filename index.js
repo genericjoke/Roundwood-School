@@ -19,6 +19,9 @@
 
 ////// Records / top score section///////////////////////////////
 
+getHomeButton(); //// had to move this to the top, it wasn't rendering. something to keep in mind for functions
+
+
 function getCallRecords() {
     fetch("http://localhost:3000/records")
     .then((response) => response.json())
@@ -74,8 +77,52 @@ function renderClassOption(classes) {
     const classContainer = document.createElement("div");
     classContainer.className = "class-container";
 
-    class classIcon = document.createElement("img");
+    const classIcon = document.createElement("img");
+    classIcon.src = classes.image;
+    classIcon.className = "class-op";
+    const classImageContainer = document.createElement("div");
+    classImageContainer.className = "class-imgage-container";
+    classImageContainer.append(classIcon);
+
+    const className = document.createElement("li");
+    className.textContent = `Class: ${classes.name}`;
+
+    const classProg = document.createElement("li");
+    classProg.textContent = `Programming Skillz: ${classes.prog}`;
     
+    const classBo = document.createElement("li");
+    classBo.textContent = `Burnout: ${classes.bo}`;
+
+    classContainer.append(classImageContainer, className, classProg, classBo);
+    const classSetupDiv = document.querySelector("class-options");
+
+    classSetupDiv.appendChild(classContainer);
+}
+    
+
+
+/////// helper functions to show one setup section and hide others (avatar/name + class)
+
+
+const classButtonFromAvatarView = document.querySelector("#chose-class-from-avatar-view");
+classButtonFromAvatarView.addEventListener("click", () => {
+renderClassView();
+})
+
+
+
+function renderClassView () {
+    const classSetupDiv = document.querySelector("#class-setup");
+    classSetupDiv.style.display = "block";
+    const avatarSetupDiv = document.querySelector("#avatar-setup");
+    avatarSetupDiv.style.display = "none";
+}
+
+function renderAvatarView () {
+    const avatarSetupDiv = document.querySelector("#avatar-setup");
+    avatarSetupDiv.style.display = "block";
+    const classSetupDiv = document.querySelector("#class-setup");
+    classSetupDiv.style.display = "none";
 }
 
 
@@ -90,11 +137,8 @@ function getHomeButton() {
     tutorialButton.textContent = "How to Play";
     tutorialButton.className = "tutorial-button";
 
-    document.querySelector("#main-game-view").append(tutorialButton, playButton);
-
-    // playButton.addEventListener("click", () {
-
-    // }
+    const homeDiv = document.querySelector("#main-game-view")
+    homeDiv.append(tutorialButton, playButton);
 
     playButton.addEventListener("click", () => {
         const launchGame = document.querySelector("#gameplay")
@@ -115,14 +159,6 @@ function getHomeButton() {
 
     })
 }
-getHomeButton();
-// function showDiv() {
-
-// }
-
-// playButton.onclick = () => {
-//     showWords(word);
-// }
 
 
 

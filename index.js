@@ -74,29 +74,32 @@ function getCallClass() {
 getCallClass();
 
 function renderClassOption(classes) {
+    classes.forEach((classObj) = () => {
     const classContainer = document.createElement("div");
     classContainer.className = "class-container";
+    console.log(classes);
 
     const classIcon = document.createElement("img");
-    classIcon.src = classes.image;
+    classIcon.src = classObj.image;
     classIcon.className = "class-op";
     const classImageContainer = document.createElement("div");
     classImageContainer.className = "class-imgage-container";
     classImageContainer.append(classIcon);
 
     const className = document.createElement("li");
-    className.textContent = `Class: ${classes.name}`;
+    className.textContent = `Class: ${classObj.name}`;
 
     const classProg = document.createElement("li");
-    classProg.textContent = `Programming Skillz: ${classes.prog}`;
+    classProg.textContent = `Programming Skillz: ${classObj.prog}`;
     
     const classBo = document.createElement("li");
-    classBo.textContent = `Burnout: ${classes.bo}`;
+    classBo.textContent = `Burnout: ${classObj.bo}`;
 
     classContainer.append(classImageContainer, className, classProg, classBo);
-    const classSetupDiv = document.querySelector("class-options");
+    const classSetupDiv = document.querySelector("#class-options");
 
-    classSetupDiv.appendChild(classContainer);
+    classSetupDiv.append(classContainer);
+})
 }
     
 

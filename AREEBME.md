@@ -25,5 +25,6 @@ Open Deliverables
     1. continue keeps looping tutorial stories.
     2. how to hide and show messages when a button is clicked
     3. make display & hid functions
+    - I think the high score needs to be outside of the #homepage view and body needs to be set to something like inline-block. this should push the high score comfortable to the right of the game view that way it's not pushed down depending on the size of the divs in game view.
 
 

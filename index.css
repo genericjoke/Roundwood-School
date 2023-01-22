@@ -11,14 +11,21 @@ html {
 }
 
 body {
+    display: flex;
 	background: linear-gradient(-45deg, #cfbfba, #cab4bd, #c2d0d4, #b7c9c4);
 	background-size: 400% 400%;
 	animation: gradient 80s ease infinite;
 	height: 100vh;
     width: 100%;
-    position: fixed;
+    padding:0;
+    margin:0;
+    top: 0;
+    left: 0;
 }
 
+#homepage {
+    width: 80%
+}
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -31,7 +38,9 @@ body {
 	}
 }
 
-
+#gameplay {
+    display: block;
+}
 
 #game-view {
     display: flex;
@@ -39,7 +48,14 @@ body {
     width: 100%;
 }
 
-#tutorial-content {
+#game-setup {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: 80%;
+}
+
+.testing-display {
     border-style: groove;
     margin: 5%;
     padding: 5%;
@@ -64,7 +80,7 @@ body {
     position: relative;
     display: inline-block;
     width: 11%;
-    left: 17%;
+    left: 0%;
     border-style: solid;
     border:#b7c9c4;
     align-items: center;
@@ -81,6 +97,67 @@ body {
     margin-bottom: 5%;
     margin-right: 5%
 }
+
+#avatar-options {
+    position: relative;
+    display: inline-block;
+    max-height: 27rem;
+    width: auto;
+    /* left: 17%; */
+    border-style: solid;
+    border:#b7c9c4;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 1%;
+    scroll-behavior:smooth;
+    box-shadow: inset 0 0 10px #0e0d0d62;
+    box-shadow: inset 0 0 20px #0e0d0d62;
+    padding: 0%;
+    /* border-radius: 50px; */
+    padding-top: 0px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-right: 0%;
+    vertical-align: middle;
+    scroll-snap-type: proximity;
+    scroll-snap-align: start;
+}
+
+#chosen-avatar-container {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    padding: 1px;
+    vertical-align: middle;
+}
+
+#chosen-avatar-icon {
+    vertical-align: middle;
+    width: 10;
+    height: auto;
+}
+
+.avatar-op {
+    display: inline-block;
+    position: relative;
+    height: 8rem;
+    width: 8rem;
+    margin: .5rem;
+    border-radius: 30px;
+    background-color: rgb(235, 187, 57);
+    margin-bottom: 0.3rem;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    scroll-snap-type: proximity;
+    scroll-snap-align: center;
+}
+
+#avatar-setup {
+    display: inline;
+    position: relative;
+    width: 80%;
+    margin: 0;
+}
+
 
 
 

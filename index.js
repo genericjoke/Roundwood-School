@@ -83,7 +83,7 @@ function renderClassOption(classes) {
     classIcon.src = classObj.image;
     classIcon.className = "class-op";
     const classImageContainer = document.createElement("div");
-    classImageContainer.className = "class-imgage-container";
+    classImageContainer.className = "class-image-container";
     classImageContainer.append(classIcon);
 
     const className = document.createElement("li");
@@ -286,9 +286,7 @@ function avatarSetup () {
     const avatarOptions = document.querySelector("#avatar-options");
     avatarOptions.append(div8, div7, div6, div5, div4, div3, div2, div1);
 }
-
-avatarSetup ()
-
+avatarSetup()
 function renderChosenAvatar () {
     const avatarOptions = document.querySelectorAll(".avatar-div");
     avatarOptions.forEach(opt => opt.addEventListener("click", (e) => {
@@ -301,4 +299,3 @@ function renderChosenAvatar () {
 
 renderChosenAvatar ()
 
-avatarSetup()

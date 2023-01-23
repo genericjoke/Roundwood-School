@@ -339,8 +339,13 @@ const phasesData = fetch("http://localhost:3000/phases")
     return data;
   });
 
-  
+const avatarName = document.querySelector("#chosen-avatar-container > input")
+avatarName.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(avatarName.value);
 
+}
+  
 ///////////STATS////////////
 let programming = 0;
 let burnout = 100;
@@ -378,10 +383,10 @@ function gameOver(){
 }
 
 //Nick's functions 
-// function randomEvent() {
+function randomEvent() {
+  
+}
 
-// }
+function randomValue () {
 
-// function randomValue () {
-
-// }
+}

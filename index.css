@@ -11,6 +11,7 @@ html {
 }
 
 body {
+
     display: flex;
 	background: linear-gradient(-45deg, #cfbfba, #cab4bd, #c2d0d4, #b7c9c4);
 	background-size: 400% 400%;
@@ -54,22 +55,43 @@ body {
     display: inline-block;
     position: relative;
     height: 100%;
-    width: 80%;
+    width: 87%;
     padding: 0;
-    margin: 0;
+    margin: 5px;
+    padding: 5px;
+}
+
+#game-phase-container {
+    
+    width: 87%;
+    margin: 5px;
+    padding:5px;
 }
 
 .testing-display {
     border-style: groove;
     border-color:rgba(22, 28, 28, 0.664);
     border-radius: 25px;
-    margin: 5px;
-    padding: 5px;
-    height: 40%;
-    width: 40%;
-    text-align: center;
 }
 
+#choice-history-container, #sticky-icons-container {
+display: inline-block;
+min-width: 100%;
+min-height: 20px;
+padding: 0;
+margin: 0;
+max-height: 200px;
+vertical-align: middle;
+
+
+}
+
+#game-stats-container {
+    display: inline-block;
+    position: relative;
+    min-width: 300px;
+    min-height: 120px;
+}
 
 .container {
     margin: 1%;

@@ -1,36 +1,29 @@
 {
-"phases": [
-    {
-        "week1": "t",
-        "week2": "t",
-        "week3": "t",
-        "project": "t"
-    },
-    {
-        "week1": "t",
-        "week2": "t",
-        "week3": "t",
-        "project": "t"
-    },
-    {
-        "week1": "t",
-        "week2": "t",
-        "week3": "t",
-        "project": "t"
-    },
-    {
-        "week1": "t",
-        "week2": "t",
-        "week3": "t",
-        "project": "t"
-    },
-    {
-        "week1": "t",
-        "week2": "t",
-        "week3": "t",
-        "project": "t"
-    }
-],
+    "learning":[{"text":"You did a lab today, Hooray!",
+    "option":"Labwork",
+    "high":"1",
+    "low":"6"}
+    ,{"text":"You attended a lecture today, Yipeee!",
+    "option":"Lecture",
+    "high":"1",
+    "low":"6"},
+    {"text":"You studied the new!",
+    "option":"Labwork",
+    "high":"1",
+    "low":"6"},
+    {"text":"You did a lab today, Hooray!",
+    "option":"Labwork",
+    "high":"1",
+    "low":"6"},
+    {"text":"You did a lab today, Hooray!",
+    "option":"Labwork",
+    "high":"1",
+    "low":"6"},
+    {"text":"You did a lab today, Hooray!",
+    "option":"Labwork",
+    "high":"1",
+    "low":"6"}],
+    "relax":[{},{},{}],
 
 
 "classes": [

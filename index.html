@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="
+https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
+"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +14,15 @@
 <body>
     <div id = "homepage">
         <div id = "main-game-view"></div>
-            <div id = "tutorial-content" class = "testing-display" class = "hide" style="display:none;">                    
+            <div id = "home">
+                <div class = "home-images-divs">
+                    <img class = "home-images" src="https://media.tenor.com/RpinOGWGUTcAAAAC/naruto-sasuke.gif">
+                </div>
+                <div class = "home-images-divs">
+                    <img clsss = "home-images" src="https://thumbs.gfycat.com/BlankQuestionableHarpyeagle-size_restricted.gif">
+                </div> 
+            </div>
+                <div id = "tutorial-content" class = "testing-display" class = "hide" style="display:none;">                    
                 <div id = "tutorial-story">
                     -- Our horribly dope game --
                     <!-- Tutorial story is appended here line by line -->
@@ -37,14 +48,16 @@
                         <p id = "programing-in-stats-container" class = "testing-display"> Programming: 00</p>
                         <p id = "burnout-in-stats-container>Burnout" class = "testing-display"> Burnout: (|===bar===|): 00</p>
                     </div>
-                </div>
+                    <button id = "launce-game-play-button">Launch Game</button>
                     <!-- Setup content goes here -->
                     <div id = "avatar-setup" class = "testing-display">
                         <!-- AVATAR OPTION SECTION BELOW -->
                         <div id = "avatar-options"></div>                        
                         <div id = "chosen-avatar-container">
                             <img id = "chosen-avatar-icon" class = "avatar-op" src = "https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg">
-                            <input placeholder = "Enter Name" style = "display: block;">
+                            <form id = name input>
+                                <input type = "text" id = "name-button" placeholder = "Enter Name" style = "display: block;">
+                            </form>
                         </div> 
                         <div id = "avatar-button-div" style = "display: inline-block;" style = "width: auto;">
                             <button id = "chose-class-from-avatar-view" class = "nav-button" type = "button"> Choose Class </button>
@@ -52,6 +65,9 @@
                         <div id = "tutorial-button-div" style = "display: inline-block;" style = "width: auto;">
                             <button id = "chose-tutorial-from-avatar-view" class = "nav-button" type = "button">Go Back To Tutorial</button>
                         </div>
+                        <!-- <div id = "name-button-div" style = "display: inline-block;" style = "width: auto;">
+                            <button id = "chose-name-from-avatar-view" class = "nav-button" type = "button">Enter Name</button>
+                        </div> -->
                         
                     </div>
                         </div>
@@ -67,8 +83,8 @@
                     </div>
                     <!-- Setup Game Phases -->
                     <div id = "game-phases-container">  
-                        <div id = "choice-history-container" class = "testing-display">Choice History</div>
-                        <div id = "all-phases-container" class = "testing-display">Phases</div>
+                        <div id = "choice-history-container" class = "testing-display" style = "display: none;">Choice History</div>
+                        <div id = "all-phases-container" class = "testing-display" style = "display:none;">Phases</div>
                     </div>
                 </div>
             </div>

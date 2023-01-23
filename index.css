@@ -151,7 +151,7 @@ body {
     height: auto;
 }
 
-.avatar-op, .class-op {
+.avatar-op, .class-op, .sticky-icon {
     display: inline-block;
     position: relative;
     height: 8rem;
@@ -165,7 +165,7 @@ body {
     scroll-snap-align: center;
 }
 
-#button-div {
+#avatar-button-div, #class-button-div {
     vertical-align: middle;
     padding:0;
     width:auto;

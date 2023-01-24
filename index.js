@@ -107,6 +107,7 @@ const classButtonFromAvatarView = document.querySelector(
 classButtonFromAvatarView.addEventListener("click", () => {
     renderClassView();
     renderChosenClass();
+    
     const playerName = document.querySelector("#player-name-under-avatar") 
    
     const nameButton = document.querySelector("#name-button")
@@ -193,6 +194,12 @@ function getHomeButton() {
     homeButtonsDiv.style = "display: none;";
     const homeDiv = document.querySelector("#home");
     homeDiv.style.display = "none";
+    // const launchButton = document.querySelector("#launch-game-play-button");
+    // launchButton.style = "display: none;";
+    const gamePhases = document.querySelector("#game-phases-container");
+    gamePhases.style = "display: none;";
+    const afterGame = document.querySelector("#launch-game")
+    afterGame.style = "display: none;";
   });
 
   tutorialButton.addEventListener("click", () => {
@@ -384,9 +391,27 @@ function currentInfo(){
 
 /////Stat checks
 function mentalCheck() {
-  if (mental <= 0)gameOver();
+  if (life <= 0)gameOver();
 }
-function programmingCheck(check) {
+function programmingCheck() {
+switch(day)
+{
+case "1:
+alert ("Day is 15");
+break;
+case "30":
+alert ("Day is 30");
+break;
+case "45":
+alert ("day 45");
+break;
+case "60":
+alert ("");
+break;
+case "75":
+alert ("");
+break;
+}
   if (programming >= check) return true;
   return false;
 }
@@ -395,66 +420,147 @@ function gameOver(){
     
 }
 
-//Events
-function getGameData(){
-   fetch("http://localhost:3000/gameEvents")
-     .then(data => data.json())
-     .then(data => (randomEvent));
- }
- 
- function handleGameData(gameData){
-   return gameData;
- }
-
-function randomEvent(data) {
-  const eventArray = data;
-  console.log(data)
-  return eventArray.relax[parseInt(Math.random() * (eventArray.relax -1))];
-}
-// function randomEvent(eventArray) {
-//   rand = Math.random();
-//   arrayLen = eventArray.length;
-//   index = rand * arrayLen;
-//   return index
+//////////EVENTS//////////////
+// function getLearningEvent(){
+//     fetch("http://localhost:3000/gameEvents")
+//       .then(data => data.json())
+//       .then(function (data){
+//         return randomLearningEvent(data.learning);
+//       }
+// )
 // }
 
-function randomValue (high, low) {
-  return parseInt(Math.floor((Math.random * high)+low));
-}
 
-// function getArrayRandomElement (arr) {
-//     return arr[Math.floor(Math.random() * arr.length)];
+// function randomLearningEvent(gameData) {
+//     console.log(gameData[Math.round(Math.random() * (gameData.length - 1))]);
 // }
 
-document.addEventListener('keydown', async(e)=>{
-  if (e.code === "Space"){
-    await Tone.start();
-  const synth = new Tone.Synth().toDestination();
-  const now = Tone.now()
-  synth.triggerAttackRelease("E4","4n.", now)
-  synth.triggerAttackRelease("E4","4n", now+.5)
-  synth.triggerAttackRelease("G4","4n.", now+.75)
-  synth.triggerAttackRelease("E4","4n", now+1)
-  synth.triggerAttackRelease("D4","4n", now+1.25)
-  synth.triggerAttackRelease("C4","2n", now+1.5)
-  synth.triggerAttackRelease("B3","2n", now+1.75)}
-})
-// const mentalEvent = randomEvent(learning);
+// function getRelaxEvent(){
+//   fetch("http://localhost:3000/gameEvents")
+//     .then(data => data.json())
+//     .then(data => (randomEvent(data.relax)));
+// }
 
-// function renderLearningEvents(learning) {
+/////////////testing
 
-//   const chosenEvent = randomEvent(learning);
+/////////////// rendering OPTIONS ////////////////
+function getLearningEvent(){
+    fetch("http://localhost:3000/gameEvents")
+      .then(data => data.json())
+      .then(function (data){
+        newRandomLearningEvent(data.learning);
+      }
+)}
+
+function getRelaxEvent(){
+    fetch("http://localhost:3000/gameEvents")
+      .then(data => data.json())
+      .then(function (data){
+        newRandomRelaxEvent(data.relax);
+      }
+)}
+
+function getRandomDayEvent(){
+  fetch("http://localhost:3000/gameEvents")
+    .then(data => data.json())
+    .then(function (data){
+      if(Math.round(Math.random==0))
+      newRandomLearningEvent(data.learning);
+      else
+      newRandomRelaxEvent(data.relax);
+    }
+)}
+
+function newRandomLearningEvent(gameData) {
+  const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+
+    const eventDiv = document.querySelector("#week-option-container-1");//// link div - not to keino
+    
+    const eventIcon = document.querySelector("#week-option-icon");
+    eventIcon.src = event.image
+    
+    const eventTitle = document.querySelector("#week-option-name");
+    eventTitle.textContent = event.option
+
+    console.log(event.option);
+
+    eventIcon.addEventListener("dblclick", () => {
+      programming += randomValue(event.high, event.low);
+      life -= randomValue(event.high, event.low);
+      mentalCheck();
+      if(day%15==0)
+      programmingCheck(day*2-10);
+    })
+    allPhasesContainer.append(eventDiv);
+  }
+
+  function newRandomRelaxEvent(gameData) {
+    const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+
+    const eventDiv = document.querySelector("#week-option-container-1");//// link div - not to keino
+    
+    const eventIcon = document.querySelector("#week-option-icon");
+    eventIcon.src = event.option
+    
+    const eventTitle = document.querySelector("#week-option-name");
+    eventTitle.textContent = event.name
+      
+      eventIcon.addEventListener("dblclick", () => {
+        life += randomValue(event.high,event.low);
+        if(day%15==0)
+      programmingCheck();
+      })
+      allPhasesContainer.append(eventDiv);
+    }
+// function newRandomEvent(gameData) {
+//   const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+//     const eventDiv = document.createElement("div");
+//     const eventIcon = document.createElement("img");
+//     eventIcon.className = "avatar";
+//     eventIcon.src = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png"
+//     const eventTitle = document.createElement("h2");
+//     eventTitle.textContent = event.option;
+//     const allPhasesContainer = document.querySelector("#all-phases-container");
+//     eventDiv.append(eventIcon, eventTitle);
+//     eventIcon.addEventListener("dblclick", () => {
+      
+//     })
+//     allPhasesContainer.append(eventDiv);
+//   }
+  
+  function renderDayEvents() {
+  getRelaxEvent();
+  getLearningEvent();
+  getRandomDayEvent();
+}
+
+renderDayEvents();
+
+  /////////////////////////////relax
+
+// function renderLearningEvent() {
+//   const event = getLearningEvent();
+//   console.log(event);
 //   const eventDiv = document.createElement("div");
 //   const eventIcon = document.createElement("img");
-//   eventIcon.src = "https://cdn2.iconfinder.com/data/icons/seo-accessibility-usability-2/256/Coding-512.png";
+//   eventIcon.className = "avatar"
+//   eventIcon.src = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png"
 //   const eventTitle = document.createElement("h2");
-//   eventTitle.textContent = chosenEvent.option;
+//   eventTitle.textContent = event[0];
 //   const allPhasesContainer = document.querySelector("#all-phases-container");
 //   eventDiv.append(eventIcon, eventTitle);
 //   allPhasesContainer.append(eventDiv);
 // }
 
-// renderLearningEvents();
+
+
+////// testing
+
+
+// const mentalEvent = randomEvent(learning);
+
+
+
 
 // function renderRelaxEvents(relax) {
 //   const index = randomEvent(relax)
@@ -470,3 +576,103 @@ document.addEventListener('keydown', async(e)=>{
 // }
 
 // renderRelaxEvents();
+
+
+document.addEventListener('keydown', async(e)=>{
+  if (e.code === "Space"){
+    await Tone.start();
+  const synth = new Tone.Synth().toDestination();
+  const now = Tone.now()
+  synth.triggerAttackRelease("E4","4n.", now)
+  synth.triggerAttackRelease("E4","4n", now+.5)
+  synth.triggerAttackRelease("G4","4n.", now+.75)
+  synth.triggerAttackRelease("E4","4n", now+1)
+  synth.triggerAttackRelease("D4","4n", now+1.25)
+  synth.triggerAttackRelease("C4","2n", now+1.5)
+  synth.triggerAttackRelease("B3","2n", now+1.75)}
+})
+
+////////////////////////////// Launching Game Screen //////////////////////////////
+
+const launchButton = document.querySelector("#launch-game-play-button");
+launchButton.addEventListener("click", launchGame);
+
+const choicesHistory = document.querySelector("#game-story")
+
+function launchGame() {
+  console.log("Launching");
+  const beforeGameViewTitle = document.querySelector("#game-setup > div:nth-child(1)")
+  beforeGameViewTitle.style.display = "none";
+  const records = document.querySelector("#top-player-display")
+  records.style.display = "none";
+  const beforeGameViewBanner = document.querySelector("#sticky-icons-container")
+  beforeGameViewBanner.style.display = "none";
+  const beforeGameViewClass = document.querySelector("#class-setup")
+  beforeGameViewClass.style.display = "none";
+  document.querySelector("#choice-history-container").style.display = "none";
+  document.querySelector("#all-phases-container").style.display = "inline-block";
+  // const gameNext = document.querySelector("#next-game")
+  gameNext.style.display = "block";
+  choicesHistory.style.display = "block";
+  const launchButton = document.querySelector("#launch-game-play-button");
+  launchButton.style = "display: block;";
+  const gamePhases = document.querySelector("#game-phases-container");
+  gamePhases.style = "display: block;";
+  // const afterGame = document.querySelector("#launch-game")
+  // afterGame.style = "display: none;";
+}
+
+const backgroundStory = [
+  "Welcome to the our Game!",
+  "Step 1",
+  "Step 2 ",
+  "You're Ready!",
+];
+
+const gameNext = document.querySelector("#next-game")
+const gameStart = document.querySelector("#starting-game")
+let indexNew = - 1
+gameNext.addEventListener("click", () => {
+  console.log("Launching");
+  indexNew = (indexNew + 1) % backgroundStory.length;
+
+  const steps = document.createElement("li");
+  steps.textContent = backgroundStory[indexNew];
+  choicesHistory.append(steps);
+  console.log(indexNew);
+  console.log(backgroundStory.length - 1);
+  if (indexNew === backgroundStory.length - 1) {
+    // choicesHistory.style = "display: none;";
+    document.querySelector("#choice-history-container").style.display = "block";
+    document.querySelector("#all-phases-container").style.display = "block";
+    gameNext.style.display = "none"; 
+    gameStart.style.display = "block";
+  }
+})
+
+  /// swaps continue button with launch game button after story ends////
+
+;
+
+
+
+// let testp = 0;
+// let testl = 100
+// for(let x = 1; x<75;x++){
+// if(x%2){
+// testp += randomValue(1,3);
+// testl -= randomValue(3,4);}
+// else
+// testl += randomValue(2,3);
+//       if(x%15==0){
+//       console.log(testp + " p")
+//       console.log(testl + " l")}
+//     }
+    
+
+// function randomValue (high, low) {
+//   return Math.round((Math.random() * high)+low);
+// }
+//test
+day = 15;
+programmingCheck();

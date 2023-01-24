@@ -393,28 +393,28 @@ function currentInfo(){
 function mentalCheck() {
   if (life <= 0)gameOver();
 }
-function programmingCheck() {
-switch(day)
-{
-case "1:
-alert ("Day is 15");
-break;
-case "30":
-alert ("Day is 30");
-break;
-case "45":
-alert ("day 45");
-break;
-case "60":
-alert ("");
-break;
-case "75":
-alert ("");
-break;
-}
-  if (programming >= check) return true;
-  return false;
-}
+// function programmingCheck() {
+// switch(day)
+// {
+// case "1:
+// alert ("Day is 15");
+// break;
+// case "30":
+// alert ("Day is 30");
+// break;
+// case "45":
+// alert ("day 45");
+// break;
+// case "60":
+// alert ("");
+// break;
+// case "75":
+// alert ("");
+// break;
+// }
+//   if (programming >= check) return true;
+//   return false;
+// }
 ///// gameOver should increment the game over counter on the web page and display a game over screen
 function gameOver(){
     

@@ -182,7 +182,7 @@ function getHomeButton() {
     gamePhases.style = "display: none;";
     const afterGame = document.querySelector("#launch-game")
     afterGame.style = "display: block;";
-    document.querySelector("sticky-icons-container").style.display = "inline-block";
+    document.querySelector("#sticky-icons-container").style.display = "inline-block";
   });
 
 
@@ -485,19 +485,26 @@ function newRandomLearningEvent1(gameData) {
       mentalCheck();
       const choiceLogCopy = document.createElement("div");
         choiceLogCopy.className = "log-style"
+        
         const imageCopy = document.createElement("img");
         imageCopy.src = event.image;
         imageCopy.className = "event-avatar"
+        
         const titleCopy = document.createElement("h3");
         titleCopy.textContent = event.option;
+        
+        
         choiceLogCopy.append(titleCopy, imageCopy)
         document.querySelector("#choice-div").append(choiceLogCopy);
+
+        console.log(document.querySelector("#choice-div"))
+
       if(day%15==0 && programmingCheck())
         gameOver();
         console.log(life + "  " + programming);
         document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
         document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
-        renderDayEvents();
+        // renderDayEvents();
     })
   }
 
@@ -530,7 +537,7 @@ function newRandomLearningEvent1(gameData) {
         console.log(life + " " + programming);
         document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
         document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
-        renderDayEvents();
+        // renderDayEvents();
       })
     }
 
@@ -561,7 +568,7 @@ function newRandomLearningEvent1(gameData) {
         console.log(life + " " + programming)
         document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
         document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
-        renderDayEvents();
+        // renderDayEvents();
       })
     }
 
@@ -594,7 +601,7 @@ function newRandomLearningEvent1(gameData) {
         console.log(life + " " + programming)
         document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
         document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
-        renderDayEvents();
+        // renderDayEvents();
         })
         
       }
@@ -622,8 +629,98 @@ function newRandomLearningEvent1(gameData) {
   getLearningEvent1();
   getLearningEvent2();
 }
-
 renderDayEvents();
+
+
+////////////////////////////1.25.23 test section////////////////////////////
+function getLearningEvent01(){
+  fetch("http://localhost:3000/gameEvents")
+    .then(data => data.json())
+    .then(function (data){
+      newRandomLearningEvent01(data.learning);
+    }
+)}
+
+function newRandomLearningEvent01(gameData) {
+  const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+
+    const eventDiv = document.querySelector("#week-option-container-1");//// link div - not to keino
+    
+    const eventIcon = document.querySelector("#week-option-icon-1");
+    eventIcon.src = event.image
+    
+    const eventTitle = document.querySelector("#week-option-name-1");
+    eventTitle.textContent = event.option
+
+
+    eventDiv.addEventListener("dblclick", () => {
+      programming += randomValue(event.high, event.low);
+      life -= randomValue(event.high, event.low);
+      mentalCheck();
+      const choiceLogCopy = document.createElement("div");
+        choiceLogCopy.className = "log-style"
+        const imageCopy = document.createElement("img");
+        imageCopy.src = event.image;
+        imageCopy.className = "event-avatar"
+        const titleCopy = document.createElement("h3");
+        titleCopy.textContent = event.option;
+        choiceLogCopy.append(titleCopy, imageCopy)
+        document.querySelector("#choice-div").append(choiceLogCopy);
+      if(day%15==0 && programmingCheck())
+        gameOver();
+        console.log(life + "  " + programming);
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
+        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
+        renderDayEvents();
+    })
+  }
+
+
+
+function renderWeekEvents() {
+  const phaseDivDom = document.querySelector("#all-phases-container")
+
+      for (let i = 0; i <= 15; i++) {
+
+        function getLearningEvent01(){
+          fetch("http://localhost:3000/gameEvents")
+            .then(data => data.json())
+            .then(function (data){
+              newRandomLearningEvent01(data.learning);
+            }
+        )}
+
+        function newRandomLearningEvent01(gameData) {
+            const eventDiv = document.createElement("div");
+             eventDiv.id = `week${i}-events-div`
+             eventDiv.className = "week-option-div"
+
+            const eventImage = document.createElement("img");
+            eventImage.src = gameData.image
+            
+            const eventOption = document.createElement("h3");
+            eventOption.textContent = gameData.option
+
+            const eventText = document.createElement("li") 
+            eventText.textContent = gameData.text
+
+            eventDiv.append(eventImage, eventOption, eventText);
+           
+            phaseDivDom.append(eventDiv)
+
+        }
+
+        getLearningEvent01()
+
+      
+
+      }
+}
+
+renderWeekEvents();
+
+
+////////////////////////////1.25.23 test section end//////////////////////////////////////////////
 
   /////////////////////////////relax
 

@@ -121,36 +121,40 @@
   ],
   "records": [
     {
-      "name": "Joe",
+      "name": "Areeb",
       "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-      "score": "5",
-      "prog": "3",
-      "bo": "2",
+      "score": "90",
+      "prog": "45",
+      "bo": "45",
+      "classImage": "https://th.bing.com/th/id/OIP.RAtXWLPaO80s0RrEEklzLQHaHa?w=155&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
       "id": "1"
     },
     {
-      "name": "Cat",
+      "name": "Keino",
       "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-      "score": "13",
-      "prog": "5",
-      "bo": "8",
+      "score": "89",
+      "prog": "45",
+      "bo": "44",
+      "classImage": "https://th.bing.com/th/id/OIP.RAtXWLPaO80s0RrEEklzLQHaHa?w=155&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
       "id": "2"
     },
     {
-      "name": "Bruno",
+      "name": "Reva",
       "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-      "score": "9",
-      "prog": "7",
-      "bo": "2",
+      "score": "70",
+      "prog": "35",
+      "bo": "35",
+      "classImage": "https://th.bing.com/th/id/OIP.RAtXWLPaO80s0RrEEklzLQHaHa?w=155&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
       "id": "3"
     },
     {
-      "name": "Areeb ",
-      "image": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png",
-      "score": 150,
-      "prog": 22,
-      "bo": 128,
-      "id": "F47Sovu"
+      "name": "",
+      "image": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png",
+      "score": 72,
+      "prog": 55,
+      "bo": 17,
+      "classImage": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png",
+      "id": "5YC2d3h"
     }
   ]
 }

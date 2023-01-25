@@ -18,7 +18,7 @@ body {
     /* background-color:rgba(22, 28, 28, 0.937); */
     /* background-color: rgba(0, 128, 128, 0.599); */
     background-color: rgb(232, 178, 30);
-    background-size: 400% 400%;
+    background-size: 100% 100%;
 	height: 100vh;
     width: 100%;
     padding:0;
@@ -45,7 +45,9 @@ body {
 #gameplay {
     display: block;
     margin-top: 10%;
-    margin-left: 10%
+    margin-left: 10%;
+    height: 80%;
+
 }
 
 .week-option-div:hover,
@@ -100,7 +102,7 @@ body {
 
 .week-option-div  {
     display: relative;
-    background-color:rgba(22, 28, 28, 0.664);
+    background-color:rgba(22, 28, 28);
     /* background: linear-gradient(-45deg, #cfbfba, #cab4bd, #13e5b1, #e8c411);
 	animation: gradient 20s ease infinite; */
     margin: 10px;
@@ -204,6 +206,7 @@ body {
     padding: 0;
     margin: 5px;
     padding: 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
 }
 
 #game-phase-container {
@@ -230,7 +233,7 @@ min-width: 100%;
 min-height: 20px;
 padding: 0;
 margin: 0;
-max-height: 300px;
+max-height: 250px;
 vertical-align: middle;
 
 
@@ -239,8 +242,10 @@ vertical-align: middle;
 #game-stats-container {
     display: inline-block;
     position: relative;
-    min-width: 300px;
-    min-height: 120px;
+    /* min-width: 300px;
+    min-height: 120px; */
+    width: 40%;
+    margin-top: 1vh;
 }
 
 .container {
@@ -315,6 +320,10 @@ vertical-align: middle;
     width: auto;
     padding: 1px;
     vertical-align: middle;
+    height: 10%;
+    margin-top: 1%;
+    text-align: center;
+    list-style: none;
 }
 
 #chosen-avatar-icon,
@@ -332,7 +341,7 @@ vertical-align: middle;
     width: 8rem;
     margin: .5rem;
     border-radius: 30px;
-    background-color: rgb(235, 187, 57);
+    background-color: rgba(22, 28, 28, 0.881);
     margin-bottom: 0.3rem;
     box-shadow: 0 10px 15px rgba(0,0,0,0.2);
     scroll-snap-type: proximity;
@@ -357,8 +366,8 @@ vertical-align: middle;
 {
     display: inline;
     position: relative;
-    width: 90%;
-    margin: 0;
+    width: 100%;
+    margin-top: 40px;
     padding: 0;
 }
 
@@ -425,17 +434,17 @@ vertical-align: middle;
     background-position: center;
   }
 
-  .play-button {
+  .play-button, #launch-game-play-button {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 30px;
     align-items: center; 
-    width: 150px; 
+    width: 100%; 
     padding: 12px;
     border-radius: 20px;
-    color: white;
-    border: 3px solid #284cff;
+    color:rgb(22, 28, 28) ;
+    border: 3px solid teal;
     cursor: pointer;
     background: transparent;
     background-image: url('https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871');
@@ -443,6 +452,7 @@ vertical-align: middle;
     background-position: 0 -100%;
     transition: 1.5s ease;
     filter: hue-rotate(0deg);
+    
     
     /* max-height: 80%;
     height: auto;

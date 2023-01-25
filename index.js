@@ -45,21 +45,8 @@ function sortRecords(records) {
     topContainer.append(playerAvatar, playerStatContainer);
     topPlayerDisplay.append(topContainer);
 
-    // const classNames = document.querySelector("#class-name-under-avatar")
-    // console.log(classNames.textContent)
-    // // const classOptions = document.querySelectorAll(".class-image-container");     //querySelectorAll(".class-image-container");
-    // // console.log(classOptions)
-    // records.forEach(opt =>
-    //   opt.addEventListener("click", (e) => {
-    //     const clickedClass = e.target;
-    //     console.log(clickedClass);
     })
     }
-
-  // dogs.forEach(dogs => {
-  //   let li = document.createElement('li');
-  //   li.textContent = dogs.content;
-  //   ul.appendChild(li);
 
 ////////////////////////selecting class section ///////////////////////
 
@@ -262,6 +249,7 @@ const ava5 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-05.png";
 const ava6 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-06.png";
 const ava7 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png";
 const ava8 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png";
+const ava9 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-09.png";
 
 function avatarSetup() {
   const avatarDiv = document.querySelector("#avatar-setup");
@@ -331,8 +319,16 @@ function avatarSetup() {
   avatar8.setAttribute("class", "avatar-op");
   div8.append(avatar8);
 
+  const div9 = document.createElement("div");
+  div8.className = "avatar-div";
+  const avatar9 = document.createElement("img");
+  avatar8.setAttribute("src", ava8);
+  avatar8.setAttribute("id", "avatar9");
+  avatar8.setAttribute("class", "avatar-op");
+  div8.append(avatar9);
+
   const avatarOptions = document.querySelector("#avatar-options");
-  avatarOptions.append(div8, div7, div6, div5, div4, div3, div2, div1);
+  avatarOptions.append(div9, div8, div7, div6, div5, div4, div3, div2, div1);
 }
 avatarSetup();
 function renderChosenAvatar() {
@@ -374,24 +370,7 @@ renderChosenClass();
 ///////////STATS////////////
 let programming = 0;
 let life = 100;
-let week = 1;
-let phase = 1;
 let day = 1;
-
-function gameReset() {
-  programming = 0;
-  life = 100;
-  week = 1;
-  phase = 1;
-  day = 1;
-}
-
-
-// renders the current week and phase, as well as your stats
-function currentInfo(){
-
-}
-
 
 
 /////Stat checks
@@ -404,18 +383,12 @@ function programmingCheck() {
   {
   case 15:
     check = 20
-  //break;
+  // break;
   // case 30:
   //   check = 45
   // break;
   // case 45:
   //   check = 75
-  // break;
-  // case 60:
-  //   check = 100
-  // break;
-  // case 75:
-  //   check = 120
     if(programming>=check)
     gameWin()
     else
@@ -462,18 +435,7 @@ function getRelaxEvent2(){
     }
 )}
 
-////// commenting out random because we are targeting a specific place in HTML to post event info and the function being called are overwriting learning and relax
 
-// function getRandomDayEvent(){
-//   fetch("http://localhost:3000/gameEvents")
-//     .then(data => data.json())
-//     .then(function (data){
-//       if(Math.round(Math.random==0))
-//       newRandomLearningEvent(data.learning);
-//       else
-//       newRandomRelaxEvent(data.relax);
-//     }
-// )}
 
 function randomValue (high, low) {
   return Math.round((Math.random() * (high))+low);
@@ -766,11 +728,19 @@ function gameWin() {
 //you are a mafia cat hacking specialist https://img0.etsystatic.com/030/0/6532215/il_570xN.546297722_9dox.jpg
   unRender();
   const mafiaCat = document.createElement("img");
-  mafiaCat.src = "https://img0.etsystatic.com/030/0/6532215/il_570xN.546297722_9dox.jpg"
+  mafiaCat.src = "https://i.pinimg.com/564x/2c/77/5b/2c775bb7dac682108f0c31ad5c2acd8f.jpg"
   mafiaCat.alt = "You are a Mafia Cat Hacking Specialist";
+  mafiaCat.style.textAlign = "center";
+  mafiaCat.style.display = "inline-block";
   const winText = document.createElement('p');
   winText.textContent = "You are a Mafia Cat Hacking Specialist"
-  document.querySelector("body").append(mafiaCat, winText);
+  const body = document.querySelector("body")
+  body.append(mafiaCat, winText);
+  body.style.backgroundColor = "black";
+  body.style.textAlign = "center";
+  body.style.color = "white";
+  body.style. fontsize = "200px";
+  
   // console.log(document.querySelector("#player-name-under-avatar").textContent);
   // console.log(document.querySelector("#chosen-avatar-icon-sticky").src);
   // console.log(parseInt(programming) + parseInt(life));
@@ -783,7 +753,8 @@ function gameWin() {
       image: document.querySelector("#chosen-avatar-icon-sticky").src,
       score: parseInt(programming) + parseInt(life),
       prog: programming,
-      bo: life
+      bo: life,
+      classImage:document.querySelector("#chosen-avatar-icon-sticky").src
     })
   })
 }

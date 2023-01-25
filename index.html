@@ -40,14 +40,14 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
             <div id = "gameplay"> 
                 <div id = "game-setup" style="display:none;" class = "testing-display">
                 <div class = "testing-display">The School of RoundWood</div> 
-                <div id = "sticky-icons-container" class = "testing-display">
-                    <div id = "chosen-avatar-container" class = "testing-display">
+                <div id = "sticky-icons-container">
+                    <div id = "chosen-avatar-container" >
                         <img id = "chosen-avatar-icon-sticky" class = "sticky-icon" src = "https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg">
-                        <li id = "player-name-under-avatar" class = "name-under-icon"> link name </li>
+                        <li id = "player-name-under-avatar" class = "name-under-icon"> Name </li>
                     </div>
-                    <div id = "chosen-class-container" class = "testing-display">
+                    <div id = "chosen-class-container">
                         <img id = "chosen-class-icon-sticky" class = "sticky-icon" src = "https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg">
-                        <!-- <li id = "class-name-under-avatar" class = "name-under-icon"> link class </li> -->
+                        <li id = "class-name-under-avatar" class = "name-under-icon"> Class </li>
                     </div>
                     <div id = "game-stats-container" class = "testing-display">
                         <h2 id = "player-name-in-stats-container"  class = "testing-display"></h2>
@@ -57,7 +57,7 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
                     </div>
                     <button id = "launch-game-play-button">Launch Game</button>
                     <!-- Setup content goes here -->
-                    <div id = "avatar-setup" class = "testing-display">
+                    <div id = "avatar-setup" >
                         <!-- AVATAR OPTION SECTION BELOW -->
                         <div id = "avatar-options"></div>                        
                         <div id = "chosen-avatar-container">
@@ -78,7 +78,7 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
                         
                         </div>
                             </div>
-                        <div id = "class-setup" style = "display:none;" class = "testing-display">
+                        <div id = "class-setup" style = "display:none;">
                             <!-- CLASS SELECTION SECTION -->
                             <div id = "class-options"></div>
                             <div id = "chosen-class-container">
@@ -88,45 +88,46 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
                                 <button id = "go-back-to-avatar-from-class-view" class = "nav-button" type = "button"> Go Back to Avatar Options </button>
                             </div>
                         </div>
-                    </div>
-                    <div id = "post-setup-game">
-                        <!-- Setup Game Phases -->
-                        <div id = "game-phases-container" style = "display: none;">  
-                            <div id = "launch-game" class = "testing-display" style = "display: none;">
-                                <button id="next-game"> continue </button>
-                                <button id="starting-game" style = "display: none;"> Start Game </button>
-                            </div>
-                            <div id = "choice-log-and-phase-container">
-                                <div id = "choice-history-container" class = "testing-display" style = "display: inline-block;">
-                                    <h2> Choice Log </h2>
-                                    <div id = "choice-div" class = "choice-div" class = "testing-display" style = "display: inline-block;">
+                        <div id = "post-setup-game">
+                            <!-- Setup Game Phases -->
+                            <div id = "game-phases-container" style = "display: none;">  
+                                <div id = "launch-game" class = "testing-display" style = "display: none;">
+                                    <button id="next-game"> continue </button>
+                                    <button id="starting-game" style = "display: none;"> Start Game </button>
+                                </div>
+                                <div id = "choice-log-and-phase-container">
+                                    <div id = "choice-history-container" class = "testing-display" style = "display: inline-block;">
+                                        <h2> Choice Log </h2>
+                                        <div id = "choice-div" class = "choice-div" class = "testing-display" style = "display: inline-block;">
+                                        </div>
+                                    </div>
+                                    <div id = "all-phases-container" class = "testing-display" style = "display: block;" style = "display: inline-block;">
+                                            <h2>Week</h2>                            
+                                        <div id = "week-option-container-1" class = "week-option-div" class = "testing-display"  style = "display: inline-block;">
+                                            <img id = "week-option-icon-1" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
+                                            <h3 id = "week-option-name-1"></h3>
+                                        </div>
+                                        <div id = "week-option-container-2" class = "week-option-div" class = "testing-display" style = "display: inline-block;">
+                                            <img id = "week-option-icon-2" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
+                                            <h3 id = "week-option-name-2"></h3>
+                                        </div>
+                                        <div id = "week-option-container-3" class = "week-option-div" class = "testing-display" style = "display: inline-block;">
+                                            <img id = "week-option-icon-3" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
+                                            <h3 id = "week-option-name-3"></h3>
+                                        </div>
+                                        <div id = "week-option-container-4" class = "week-option-div" class = "testing-display" style = "display: inline-block;">
+                                            <img id = "week-option-icon-4" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
+                                            <h3 id = "week-option-name-4"></h3>
+                                        </div>
                                     </div>
                                 </div>
-                                <div id = "all-phases-container" class = "testing-display" style = "display: block;" style = "display: inline-block;">
-                                        <h2>Week</h2>                            
-                                    <div id = "week-option-container-1" class = "week-option-div" class = "testing-display"  style = "display: inline-block;">
-                                        <img id = "week-option-icon-1" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
-                                        <h3 id = "week-option-name-1"></h3>
-                                    </div>
-                                    <div id = "week-option-container-2" class = "week-option-div" class = "testing-display" style = "display: inline-block;">
-                                        <img id = "week-option-icon-2" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
-                                        <h3 id = "week-option-name-2"></h3>
-                                    </div>
-                                    <div id = "week-option-container-3" class = "week-option-div" class = "testing-display" style = "display: inline-block;">
-                                        <img id = "week-option-icon-3" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
-                                        <h3 id = "week-option-name-3"></h3>
-                                    </div>
-                                    <div id = "week-option-container-4" class = "week-option-div" class = "testing-display" style = "display: inline-block;">
-                                        <img id = "week-option-icon-4" class = "event-avatar" src="http://placehold.it/" style="display: inline-block;">
-                                        <h3 id = "week-option-name-4"></h3>
-                                    </div>
-                                </div>
+                            <div id = "game-story">
+                                -- Our horribly dope game --
+                                <!-- Game story is appended here line by line -->
                             </div>
-                        <div id = "game-story">
-                            -- Our horribly dope game --
-                            <!-- Game story is appended here line by line -->
                         </div>
                     </div>
+ 
 
                 </div>
             </div>

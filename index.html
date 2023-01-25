@@ -14,12 +14,19 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
 <body>
     <div id = "homepage">
         <div id = "main-game-view"></div>
-            <div id = "home">
-                <div class = "home-images-divs">
-                    <img class = "home-images" src="https://media.tenor.com/RpinOGWGUTcAAAAC/naruto-sasuke.gif">
+            <div id = "home" style = "padding-left: 20%;">
+                <div id = "tutorial-from-home"class = "home-images-divs" style = "text-align: center;">
+                    <img id = "tutorial-home-image"class = "home-images" src="https://media.tenor.com/RpinOGWGUTcAAAAC/naruto-sasuke.gif">
+                    <h3 id ="tutorial-txt" style = "text-align: center;" style = "display: none;">
+                        How To Play
+                    </h3>
                 </div>
-                <div class = "home-images-divs">
+                <div id = "hover-text-t" style = "display:none;"> Test tutorial</div>
+                <div id = "launch-from-home"class = "home-images-divs">
                     <img class = "home-images" src="https://thumbs.gfycat.com/BlankQuestionableHarpyeagle-size_restricted.gif">
+                    <h3 class="first-txt" style = "text-align: center;">
+                        Start Game
+                    </h3>
                 </div> 
             </div>
                 <div id = "tutorial-content" class = "testing-display" class = "hide" style="display:none;">                    
@@ -30,9 +37,9 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
                 <button id="nextTutorial"> continue </button>
                 <button id="start-button-after-tutorial" style="display:none;"> Launch Game! </button>
             </div>
-            <div id = "gameplay" >
+            <div id = "gameplay"> 
                 <div id = "game-setup" style="display:none;" class = "testing-display">
-                <div class = "testing-display">Game Name / Title Banner</div> 
+                <div class = "testing-display">The School of RoundWood</div> 
                 <div id = "sticky-icons-container" class = "testing-display">
                     <div id = "chosen-avatar-container" class = "testing-display">
                         <img id = "chosen-avatar-icon-sticky" class = "sticky-icon" src = "https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg">
@@ -40,7 +47,7 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
                     </div>
                     <div id = "chosen-class-container" class = "testing-display">
                         <img id = "chosen-class-icon-sticky" class = "sticky-icon" src = "https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg">
-                        <li id = "class-name-under-avatar" class = "name-under-icon"> link class </li>
+                        <!-- <li id = "class-name-under-avatar" class = "name-under-icon"> link class </li> -->
                     </div>
                     <div id = "game-stats-container" class = "testing-display">
                         <h2 id = "player-name-in-stats-container"  class = "testing-display"></h2>
@@ -90,7 +97,7 @@ https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js
                                 <button id="starting-game" style = "display: none;"> Start Game </button>
                             </div>
                             <div id = "choice-log-and-phase-container">
-                                <div id = "choice-history-container" class = "testing-display" style = "display: block;">
+                                <div id = "choice-history-container" class = "testing-display" style = "display: inline-block;">
                                     <h2> Choice Log </h2>
                                     <div id = "choice-div" class = "choice-div" class = "testing-display" style = "display: inline-block;">
                                     </div>

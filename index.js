@@ -154,20 +154,24 @@ function renderAvatarView() {
 
 ////////////////////////home page section////////////////////////
 function getHomeButton() {
-  const playButton = document.createElement("button");
-  playButton.textContent = "Start New Game";
-  playButton.className = "play-button";
-  playButton.id = "play-button";
+  // const playButton = document.createElement("button");
+  // playButton.textContent = "Start New Game";
+  // // const playButton = document.querySelector("#home > div:nth-child(1) > img")
+  // playButton.className = "play-button";
+  // playButton.id = "play-button";
 
-  const tutorialButton = document.createElement("button");
-  tutorialButton.textContent = "How to Play";
-  tutorialButton.className = "tutorial-button";
-  tutorialButton.id = "tutorial-button"; 
+  // const tutorialButton = document.createElement("button");
+  // tutorialButton.textContent = "How to Play";
+  // tutorialButton.className = "tutorial-button";
+  // tutorialButton.id = "tutorial-button"; 
 
-  const homeDiv = document.querySelector("#main-game-view");
-  homeDiv.append(tutorialButton, playButton);
+  const launchFromHome = document.querySelector("#launch-from-home > img");
+  const tutorialFromHome = document.querySelector("#tutorial-from-home > img");
 
-  playButton.addEventListener("click", () => {
+  // const homeDiv = document.querySelector("#main-game-view");
+  // homeDiv.append(tutorialButton, playButton);
+
+  launchFromHome.addEventListener("click", () => {
     const launchGame = document.querySelector("#gameplay");
     launchGame.style = "display: block;";
     const setupGame = document.querySelector("#game-setup");
@@ -176,6 +180,8 @@ function getHomeButton() {
     homeButtonsDiv.style = "display: none;";
     const homeDiv = document.querySelector("#home");
     homeDiv.style.display = "none";
+    launchFromHome.style = "display: none;";
+    tutorialFromHome.style = "display: none;";
     // const launchButton = document.querySelector("#launch-game-play-button");
     // launchButton.style = "display: none;";
     const gamePhases = document.querySelector("#game-phases-container");
@@ -198,14 +204,13 @@ function launchGameAfterSetupAndIntroStory () {
 
 launchGameAfterSetupAndIntroStory();
 
-
-
-
-  tutorialButton.addEventListener("click", () => {
+  tutorialFromHome.addEventListener("click", () => {
     const tutorialContent = document.querySelector("#tutorial-content");
     tutorialContent.style = "display: block;";
     const homeButtonsDiv = document.querySelector("#main-game-view");
     homeButtonsDiv.style = "display: none;";
+    launchFromHome.style = "display: none;";
+    tutorialFromHome.style = "display: none;";
   });
 }
 
@@ -394,32 +399,35 @@ function mentalCheck() {
   if (life <= 0)gameOver();
 }
 function programmingCheck() {
-  let check = 0;
+  let check;
   switch(day)
   {
   case 15:
     check = 20
-  break;
-  case 30:
-    check = 45
-  break;
-  case 45:
-    check = 75
-  break;
-  case 60:
-    check = 100
-  break;
-  case 75:
-    check = 120
+  //break;
+  // case 30:
+  //   check = 45
+  // break;
+  // case 45:
+  //   check = 75
+  // break;
+  // case 60:
+  //   check = 100
+  // break;
+  // case 75:
+  //   check = 120
+    if(programming>=check)
+    gameWin()
+    else
+    gameOver()
   break;
   }
-  if (programming >= check) return false;
+  if (programming >= check)
+  return false;
+  else
   return true;
 }
-///// gameOver should increment the game over counter on the web page and display a game over screen
-function gameOver(){
-    
-}
+
 
 /////////////// rendering OPTIONS ////////////////
 function getLearningEvent1(){
@@ -467,8 +475,12 @@ function getRelaxEvent2(){
 //     }
 // )}
 
+function randomValue (high, low) {
+  return Math.round((Math.random() * (high))+low);
+}
+
 function newRandomLearningEvent1(gameData) {
-  const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+  let event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
 
     const eventDiv = document.querySelector("#week-option-container-1");//// link div - not to keino
     
@@ -480,36 +492,44 @@ function newRandomLearningEvent1(gameData) {
 
 
     eventDiv.addEventListener("dblclick", () => {
-      programming += randomValue(event.high, event.low);
-      life -= randomValue(event.high, event.low);
+      day++;
+      programming += parseInt(event.high);
+      life -= parseInt(event.high) + parseInt(event.low);
       mentalCheck();
       const choiceLogCopy = document.createElement("div");
         choiceLogCopy.className = "log-style"
         
         const imageCopy = document.createElement("img");
         imageCopy.src = event.image;
-        imageCopy.className = "event-avatar"
+        imageCopy.className = "event-avatar";
         
         const titleCopy = document.createElement("h3");
         titleCopy.textContent = event.option;
+        titleCopy.className = "log-title";
+
+        const message = document.createElement("li");
+        message.textContent = event.text;
+        message.className = "log-message";
         
-        
-        choiceLogCopy.append(titleCopy, imageCopy)
+        choiceLogCopy.append(imageCopy, titleCopy, message)
         document.querySelector("#choice-div").append(choiceLogCopy);
 
-        console.log(document.querySelector("#choice-div"))
-
-      if(day%15==0 && programmingCheck())
-        gameOver();
-        console.log(life + "  " + programming);
-        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
-        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
-        // renderDayEvents();
+        event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+        eventIcon.src = event.image
+        eventTitle.textContent = event.option
+        console.log(programming + " " + life);
+      
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent = document.querySelector("#burnout-in-stats-container-Burnout").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#programing-in-stats-container").textContent = document.querySelector("#programing-in-stats-container").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent += life;
+        document.querySelector("#programing-in-stats-container").textContent += programming;
+        if(day%15==0 && programmingCheck())
+          gameOver();
     })
   }
 
   function newRandomLearningEvent2(gameData) {
-    const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+    let event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
   
       const eventDiv = document.querySelector("#week-option-container-3");//// link div - not to keino
       
@@ -520,8 +540,9 @@ function newRandomLearningEvent1(gameData) {
       eventTitle.textContent = event.option
   
       eventDiv.addEventListener("dblclick", () => {
-        programming += randomValue(event.high, event.low);
-        life -= randomValue(event.high, event.low);
+        day++
+        programming += parseInt(event.high);
+        life -= parseInt(event.high) + parseInt(event.low);
         mentalCheck();
         const choiceLogCopy = document.createElement("div");
         choiceLogCopy.className = "log-style"
@@ -529,20 +550,27 @@ function newRandomLearningEvent1(gameData) {
         imageCopy.src = event.image;
         imageCopy.className = "event-avatar"
         const titleCopy = document.createElement("h3");
+
         titleCopy.textContent = event.option;
         choiceLogCopy.append(titleCopy, imageCopy)
         document.querySelector("#choice-div").append(choiceLogCopy);
+
+        event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+        eventIcon.src = event.image
+        eventTitle.textContent = event.option
+        console.log(programming+" "+life);
         if(day%15==0 && programmingCheck())
         gameOver();
-        console.log(life + " " + programming);
-        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
-        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent = document.querySelector("#burnout-in-stats-container-Burnout").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#programing-in-stats-container").textContent = document.querySelector("#programing-in-stats-container").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent += life;
+        document.querySelector("#programing-in-stats-container").textContent += programming;
         // renderDayEvents();
       })
     }
 
   function newRandomRelaxEvent1(gameData) {
-    const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+    let event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
 
     const eventDiv = document.querySelector("#week-option-container-2");//// link div - not to keino
     
@@ -553,7 +581,8 @@ function newRandomLearningEvent1(gameData) {
     eventTitle.textContent = event.option
       
       eventDiv.addEventListener("dblclick", () => {
-        life += randomValue(event.high,event.low);
+        day++
+        life += parseInt(event.high) + parseInt(event.low);
         const choiceLogCopy = document.createElement("div");
         choiceLogCopy.className = "log-style"
         const imageCopy = document.createElement("img");
@@ -563,26 +592,35 @@ function newRandomLearningEvent1(gameData) {
         titleCopy.textContent = event.option;
         choiceLogCopy.append(titleCopy, imageCopy)
         document.querySelector("#choice-div").append(choiceLogCopy);
+        
+        event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+        eventIcon.src = event.image
+        eventTitle.textContent = event.option
+        console.log(programming+" "+life);
         if(day%15==0 && programmingCheck())
         gameOver();
-        console.log(life + " " + programming)
-        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
-        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent = document.querySelector("#burnout-in-stats-container-Burnout").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#programing-in-stats-container").textContent = document.querySelector("#programing-in-stats-container").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent += life;
+        document.querySelector("#programing-in-stats-container").textContent += programming;
         // renderDayEvents();
       })
     }
 
     function newRandomRelaxEvent2(gameData) {
-      const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+      let event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
   
       const eventDiv = document.querySelector("#week-option-container-4");//// link div - not to keino
       
       const eventIcon = document.querySelector("#week-option-icon-4");
       eventIcon.src = event.image
-      
       const eventTitle = document.querySelector("#week-option-name-4");
       eventTitle.textContent = event.option
 
+      eventDiv.addEventListener("dblclick", () => {
+      day++  
+      life += parseInt(event.high) + parseInt(event.low);
+      console.log(programming + " " + life);
       const choiceLogCopy = document.createElement("div");
       choiceLogCopy.className = "log-style"
       const imageCopy = document.createElement("img");
@@ -591,36 +629,22 @@ function newRandomLearningEvent1(gameData) {
       const titleCopy = document.createElement("h3");
       titleCopy.textContent = event.option;
       choiceLogCopy.append(titleCopy, imageCopy)
-      
-        eventDiv.addEventListener("dblclick", () => {
-          life += randomValue(event.high,event.low);
+      document.querySelector("#choice-div").append(choiceLogCopy);
+      event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+        eventIcon.src = event.image
+        eventTitle.textContent = event.option
+
         document.querySelector("#choice-div").append(choiceLogCopy);
           if(day%15==0 && programmingCheck())
         gameOver();
-        
-        console.log(life + " " + programming)
-        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
-        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent = document.querySelector("#burnout-in-stats-container-Burnout").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#programing-in-stats-container").textContent = document.querySelector("#programing-in-stats-container").textContent.replaceAll(/[0-9]/g, ``)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent += life;
+        document.querySelector("#programing-in-stats-container").textContent += programming;
         // renderDayEvents();
         })
         
       }
-
-// function newRandomEvent(gameData) {
-//   const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
-//     const eventDiv = document.createElement("div");
-//     const eventIcon = document.createElement("img");
-//     eventIcon.className = "avatar";
-//     eventIcon.src = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png"
-//     const eventTitle = document.createElement("h2");
-//     eventTitle.textContent = event.option;
-//     const allPhasesContainer = document.querySelector("#all-phases-container");
-//     eventDiv.append(eventIcon, eventTitle);
-//     eventIcon.addEventListener("dblclick", () => {
-      
-//     })
-//     allPhasesContainer.append(eventDiv);
-//   }
  
 
   function renderDayEvents() {
@@ -630,138 +654,6 @@ function newRandomLearningEvent1(gameData) {
   getLearningEvent2();
 }
 renderDayEvents();
-
-
-////////////////////////////1.25.23 test section////////////////////////////
-function getLearningEvent01(){
-  fetch("http://localhost:3000/gameEvents")
-    .then(data => data.json())
-    .then(function (data){
-      newRandomLearningEvent01(data.learning);
-    }
-)}
-
-function newRandomLearningEvent01(gameData) {
-  const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
-
-    const eventDiv = document.querySelector("#week-option-container-1");//// link div - not to keino
-    
-    const eventIcon = document.querySelector("#week-option-icon-1");
-    eventIcon.src = event.image
-    
-    const eventTitle = document.querySelector("#week-option-name-1");
-    eventTitle.textContent = event.option
-
-
-    eventDiv.addEventListener("dblclick", () => {
-      programming += randomValue(event.high, event.low);
-      life -= randomValue(event.high, event.low);
-      mentalCheck();
-      const choiceLogCopy = document.createElement("div");
-        choiceLogCopy.className = "log-style"
-        const imageCopy = document.createElement("img");
-        imageCopy.src = event.image;
-        imageCopy.className = "event-avatar"
-        const titleCopy = document.createElement("h3");
-        titleCopy.textContent = event.option;
-        choiceLogCopy.append(titleCopy, imageCopy)
-        document.querySelector("#choice-div").append(choiceLogCopy);
-      if(day%15==0 && programmingCheck())
-        gameOver();
-        console.log(life + "  " + programming);
-        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
-        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
-        renderDayEvents();
-    })
-  }
-
-
-
-function renderWeekEvents() {
-  const phaseDivDom = document.querySelector("#all-phases-container")
-
-      for (let i = 0; i <= 15; i++) {
-
-        function getLearningEvent01(){
-          fetch("http://localhost:3000/gameEvents")
-            .then(data => data.json())
-            .then(function (data){
-              newRandomLearningEvent01(data.learning);
-            }
-        )}
-
-        function newRandomLearningEvent01(gameData) {
-            const eventDiv = document.createElement("div");
-             eventDiv.id = `week${i}-events-div`
-             eventDiv.className = "week-option-div"
-
-            const eventImage = document.createElement("img");
-            eventImage.src = gameData.image
-            
-            const eventOption = document.createElement("h3");
-            eventOption.textContent = gameData.option
-
-            const eventText = document.createElement("li") 
-            eventText.textContent = gameData.text
-
-            eventDiv.append(eventImage, eventOption, eventText);
-           
-            phaseDivDom.append(eventDiv)
-
-        }
-
-        getLearningEvent01()
-
-      
-
-      }
-}
-
-renderWeekEvents();
-
-
-////////////////////////////1.25.23 test section end//////////////////////////////////////////////
-
-  /////////////////////////////relax
-
-// function renderLearningEvent() {
-//   const event = getLearningEvent();
-//   console.log(event);
-//   const eventDiv = document.createElement("div");
-//   const eventIcon = document.createElement("img");
-//   eventIcon.className = "avatar"
-//   eventIcon.src = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png"
-//   const eventTitle = document.createElement("h2");
-//   eventTitle.textContent = event[0];
-//   const allPhasesContainer = document.querySelector("#all-phases-container");
-//   eventDiv.append(eventIcon, eventTitle);
-//   allPhasesContainer.append(eventDiv);
-// }
-
-
-
-////// testing
-
-
-// const mentalEvent = randomEvent(learning);
-
-
-
-
-// function renderRelaxEvents(relax) {
-//   const index = randomEvent(relax)
-//   const chosenEvent = relax[index]
-//   const eventDiv = document.createElement("div");
-//   const eventIcon = document.createElement("img");
-//     eventIcon.src = "https://cdn2.iconfinder.com/data/icons/seo-accessibility-usability-2/256/Coding-512.png";
-//   const eventTitle = document.createElement("h2");
-//     eventTitle.textContent = relax.option;
-//   const allPhasesContainer = document.querySelector("#all-phases-container");
-//     eventDiv.append(eventIcon, eventTitle);
-//     allPhasesContainer.append(eventDiv);
-// }
-
-// renderRelaxEvents();
 
 
 document.addEventListener('keydown', async(e)=>{
@@ -864,27 +756,58 @@ gameNext.addEventListener("click", () => {
 
   /// swaps continue button with launch game button after story ends////
 
-;
 
-
-
-// let testp = 0;
-// let testl = 100
-// for(let x = 1; x<75;x++){
-// if(x%2){
-// testp += randomValue(1,3);
-// testl -= randomValue(3,4);}
-// else
-// testl += randomValue(2,3);
-//       if(x%15==0){
-//       console.log(testp + " p")
-//       console.log(testl + " l")}
-//     }
-    
-
-function randomValue (high, low) {
-  return Math.floor(Math.random() * (high-low)+low);
-}
 document.querySelector('#name').addEventListener("submit", (e) => e.preventDefault());//prevents the enter button on the name submission from refreshing the page
 
 //document.querySelector("#programing-in-stats-container")
+
+function gameWin() {
+//needs to post a win to db, call the unRender function, and render a game win img
+//you are a mafia cat hacking specialist https://img0.etsystatic.com/030/0/6532215/il_570xN.546297722_9dox.jpg
+  unRender();
+  const mafiaCat = document.createElement("img");
+  mafiaCat.src = "https://img0.etsystatic.com/030/0/6532215/il_570xN.546297722_9dox.jpg"
+  mafiaCat.alt = "You are a Mafia Cat Hacking Specialist";
+  const winText = document.createElement('p');
+  winText.textContent = "You are a Mafia Cat Hacking Specialist"
+  document.querySelector("body").append(mafiaCat, winText);
+  // console.log(document.querySelector("#player-name-under-avatar").textContent);
+  // console.log(document.querySelector("#chosen-avatar-icon-sticky").src);
+  // console.log(parseInt(programming) + parseInt(life));
+
+  fetch("http://localhost:3000/records", {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      name: document.querySelector("#player-name-under-avatar").textContent,
+      image: document.querySelector("#chosen-avatar-icon-sticky").src,
+      score: parseInt(programming) + parseInt(life),
+      prog: programming,
+      bo: life
+    })
+  })
+}
+
+
+function gameOver() {
+  //needs to call unRender function and render a game over img
+  unRender();
+  const loseImg = document.createElement("img");
+  loseImg.src = "https://t4.ftcdn.net/jpg/03/34/11/39/360_F_334113986_zAt0T3AjRnJ1TfO9u0u5WWekjiO0Fht5.jpg"
+  loseImg.alt="You lose, good day sir! I SAID GOOD DAY!"
+  const loseText = document.createElement('p')
+  loseText = "It's all there! Black and white, clear as crystal! You stole from the mafia! You bumped into Roundwood School, which now has to be washed and sterilized, so you GET... NOTHING! YOU LOSE! GOOD DAY, SIR!"
+  document.querySelector("body").append(loseImg, loseText);
+}
+
+//const playerName = document.querySelector("#player-name-under-avatar")
+
+function unRender(){
+  choicesHistory.style = "display: none;";
+  document.querySelector("#sticky-icons-container").style.display = "none";
+  document.querySelector("#choice-history-container").style.display = "none";
+  document.querySelector("#all-phases-container").style.display = "none";
+  document.querySelector("#game-setup").style.display = "none";
+  document.querySelector("#top-player-display").style.display = "none";
+  gameStart.style.display = "none";
+}

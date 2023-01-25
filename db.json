@@ -1,159 +1,156 @@
 {
-    "gameEvents": {
-        "learning": [
-            {
-                "text": "You did a lab today, Hooray!",
-                "option": "Labwork",
-                "high": "3",
-                "low": "1",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You attended a lecture today, Yipeee!",
-                "option": "Lecture",
-                "high": "5",
-                "low": "3",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You studied some new concepts, Wooo!",
-                "option": "Study",
-                "high": "2",
-                "low": "1",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You practiced writing some new code, Yessir!",
-                "option": "Practice",
-                "high": "4",
-                "low": "3",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You completed a coding quiz, Wahoo!",
-                "option": "Quiz",
-                "high": "3",
-                "low": "2",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You fixed some of your old code, Hallelujah!",
-                "option": "Troubleshoot",
-                "high": "3",
-                "low": "2",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            }
-        ],
-        "relax": [
-            {
-                "text": "You spent some time playing with your pet. It was quite relaxing!",
-                "option": "Spend time with your pet",
-                "high": "3",
-                "low": "1",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You went to a party with friends, it was nice drinking to forget about coding!",
-                "option": "Party",
-                "high": "5",
-                "low": "3",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You went fishing, it was boring!",
-                "option": "Fishing",
-                "high": "4",
-                "low": "1",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            },
-            {
-                "text": "You took some me time! You feel more at peace",
-                "option": "Me time",
-                "high": "5",
-                "low": "2",
-                "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
-            }
-        ]
-    },
-    "classes": [
-        {
-            "id": 1,
-            "name": "Nickelodeon",
-            "image": "https://images.freeimages.com/clg/images/41/410378/nickelodeon-logo_p.jpg",
-            "prog": "0",
-            "bo": "5"
-        },
-        {
-            "id": 2,
-            "name": "Gehrig",
-            "image": "https://image.similarpng.com/very-thumbnail/2022/07/Monochrome-moustache-icon-isolated-on-transparent-background-PNG.png",
-            "prog": "8",
-            "bo": "12"
-        },
-        {
-            "id": 3,
-            "name": "Tyler",
-            "image": "https://th.bing.com/th/id/OIP.6LlexXfMFrIJurHSPu2cegHaHa?w=160&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-            "prog": "12",
-            "bo": "8"
-        },
-        {
-            "id": 4,
-            "name": "Eleanor",
-            "image": "https://th.bing.com/th/id/OIP.FnKE7353geqSfu5idWrtOQHaJN?w=172&h=213&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-            "prog": "10",
-            "bo": "10"
-        },
-        {
-            "id": 5,
-            "name": "K1N0D2",
-            "image": "https://th.bing.com/th?id=OIP.PniDiumIfKhTwSiukPg6lAAAAA&w=150&h=150&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
-            "prog": "15",
-            "bo": "30"
-        },
-        {
-            "id": 6,
-            "name": "AreebME",
-            "image": "https://th.bing.com/th/id/OIP.RAtXWLPaO80s0RrEEklzLQHaHa?w=155&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-            "prog": "9004",
-            "bo": "9004"
-        }
+  "gameEvents": {
+    "learning": [
+      {
+        "text": "You did a lab today, Hooray!",
+        "option": "Labwork",
+        "high": "4",
+        "low": "2",
+        "image": "https://th.bing.com/th/id/OIP.CPg6TQQ4g2hlkfFTH46b7gHaHa?w=166&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+      },
+      {
+        "text": "You attended a lecture today, Yipeee!",
+        "option": "Lecture",
+        "high": "5",
+        "low": "3",
+        "image": "https://th.bing.com/th?id=OIP.ROh4FcojoNzuQ9z5G7BCrQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+      },
+      {
+        "text": "You studied some new concepts, Wooo!",
+        "option": "Study",
+        "high": "2",
+        "low": "1",
+        "image": "https://static.vecteezy.com/system/resources/previews/002/219/582/original/illustration-of-book-icon-free-vector.jpg"
+      },
+      {
+        "text": "You practiced writing some new code, Yessir!",
+        "option": "Practice",
+        "high": "5",
+        "low": "1",
+        "image": "https://th.bing.com/th/id/OIP.ubkvRquUOWZNGEuIKsE-FwHaHq?w=167&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+      },
+      {
+        "text": "You completed a coding quiz, Wahoo!",
+        "option": "Quiz",
+        "high": "2",
+        "low": "2",
+        "image": "https://live.staticflickr.com/2475/3664075121_e0a5bb713b.jpg"
+      },
+      {
+        "text": "You fixed some of your old code, Hallelujah!",
+        "option": "Troubleshoot",
+        "high": "3",
+        "low": "2",
+        "image": "https://th.bing.com/th/id/OIP.1fJCiLZEj21xcR9Hql_DLQHaHa?w=211&h=211&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+      }
     ],
-    "records": [
-        {
-            "name": "Joe",
-            "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-            "score": "5",
-            "prog": "3",
-            "bo": "2"
-        },
-        {
-            "name": "Cat",
-            "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-            "score": "13",
-            "prog": "5",
-            "bo": "8"
-        },
-        {
-            "name": "Bruno",
-            "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-            "score": "9",
-            "prog": "7",
-            "bo": "2"
-        },
-        {
-            "name": "Cindy",
-            "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-            "score": "15",
-            "prog": "11",
-            "bo": "4"
-        },
-        {
-            "name": "Jen",
-            "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
-            "score": "7",
-            "prog": "2",
-            "bo": "5"
-        }
+    "relax": [
+      {
+        "text": "You spent some time playing with your pet. It was quite relaxing!",
+        "option": "Spend time with your pet",
+        "high": "5",
+        "low": "1",
+        "image": "https://th.bing.com/th/id/OIP.gP-V10YcEt60yIogThoEbQHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+      },
+      {
+        "text": "You went to a party with friends, it was nice drinking to forget about coding!",
+        "option": "Party",
+        "high": "7",
+        "low": "3",
+        "image": "https://th.bing.com/th/id/OIP.kO4eGQokaOHNcHcrg9g7ugHaHa?w=209&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+      },
+      {
+        "text": "You went fishing, it was boring!",
+        "option": "Fishing",
+        "high": "4",
+        "low": "1",
+        "image": "https://clipartspub.com/images/fishing-clipart-black-and-white-catching-fish.jpg"
+      },
+      {
+        "text": "You took some me time! You feel more at peace",
+        "option": "Me time",
+        "high": "5",
+        "low": "2",
+        "image": "https://th.bing.com/th/id/OIP.DtVixBspULBhnCb1YcXMWgHaH0?w=188&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+      }
     ]
+  },
+  "classes": [
+    {
+      "id": 1,
+      "name": "Nickelodeon",
+      "image": "https://images.freeimages.com/clg/images/41/410378/nickelodeon-logo_p.jpg",
+      "prog": "0",
+      "bo": "5"
+    },
+    {
+      "id": 2,
+      "name": "Gehrig",
+      "image": "https://image.similarpng.com/very-thumbnail/2022/07/Monochrome-moustache-icon-isolated-on-transparent-background-PNG.png",
+      "prog": "8",
+      "bo": "12"
+    },
+    {
+      "id": 3,
+      "name": "Tyler",
+      "image": "https://th.bing.com/th/id/OIP.6LlexXfMFrIJurHSPu2cegHaHa?w=160&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "prog": "12",
+      "bo": "8"
+    },
+    {
+      "id": 4,
+      "name": "Eleanor",
+      "image": "https://th.bing.com/th/id/OIP.FnKE7353geqSfu5idWrtOQHaJN?w=172&h=213&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "prog": "10",
+      "bo": "10"
+    },
+    {
+      "id": 5,
+      "name": "K1N0D2",
+      "image": "https://th.bing.com/th?id=OIP.PniDiumIfKhTwSiukPg6lAAAAA&w=150&h=150&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+      "prog": "15",
+      "bo": "30"
+    },
+    {
+      "id": 6,
+      "name": "AreebME",
+      "image": "https://th.bing.com/th/id/OIP.RAtXWLPaO80s0RrEEklzLQHaHa?w=155&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "prog": "9004",
+      "bo": "9004"
+    }
+  ],
+  "records": [
+    {
+      "name": "Joe",
+      "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
+      "score": "5",
+      "prog": "3",
+      "bo": "2",
+      "id": "1"
+    },
+    {
+      "name": "Cat",
+      "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
+      "score": "13",
+      "prog": "5",
+      "bo": "8",
+      "id": "2"
+    },
+    {
+      "name": "Bruno",
+      "image": "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-01.png",
+      "score": "9",
+      "prog": "7",
+      "bo": "2",
+      "id": "3"
+    },
+    {
+      "name": "Areeb ",
+      "image": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png",
+      "score": 150,
+      "prog": 22,
+      "bo": 128,
+      "id": "F47Sovu"
+    }
+  ]
 }

@@ -13,9 +13,10 @@ html {
 body {
 
     display: flex;
-	background: linear-gradient(-45deg, #cfbfba, #cab4bd, #c2d0d4, #b7c9c4);
+	/* background: linear-gradient(-45deg, #cfbfba, #cab4bd, #c2d0d4, #b7c9c4); */
+	/* animation: gradient 80s ease infinite; */
+    background-color:rgba(22, 28, 28, 0.937);
 	background-size: 400% 400%;
-	animation: gradient 80s ease infinite;
 	height: 100vh;
     width: 100%;
     padding:0;
@@ -43,6 +44,29 @@ body {
     display: block;
     margin-top: 10%;
     margin-left: 10%
+}
+
+.week-option-div:hover {
+    transform: scale(1.1);
+}
+
+.log-style {
+    width:auto;
+}
+
+.week-option-div, .log-style  {
+    display: relative;
+    /* background-color:rgba(22, 28, 28, 0.664); */
+    background: linear-gradient(-45deg, #cfbfba, #cab4bd, #13e5b1, #e8c411);
+	animation: gradient 20s ease infinite;
+    margin: 10px;
+    min-width: 200px;
+    align-content: center;
+    border-radius: 25px
+
+
+    
+    
 }
 
 
@@ -98,8 +122,9 @@ body {
 
 .testing-display {
     border-style: groove;
-    border-color:rgba(22, 28, 28, 0.664);
+    border-color:rgb(235, 187, 57);
     border-radius: 25px;
+    color: rgb(235, 187, 57);
 }
 
 #choice-history-container, #sticky-icons-container {
@@ -158,6 +183,7 @@ vertical-align: middle;
 .avatar-div:hover, .top-container:hover {
     transform:scale(1.1);
 }
+
 
 
 #avatar-options,
@@ -262,7 +288,7 @@ vertical-align: middle;
 
 }
 
-.avatar {
+.avatar, .event-avatar {
     display: inline-block;
     position: relative;
     height: 100px;

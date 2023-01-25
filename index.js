@@ -199,8 +199,25 @@ function getHomeButton() {
     const gamePhases = document.querySelector("#game-phases-container");
     gamePhases.style = "display: none;";
     const afterGame = document.querySelector("#launch-game")
-    afterGame.style = "display: none;";
+    afterGame.style = "display: block;";
+    document.querySelector("sticky-icons-container").style.display = "inline-block";
   });
+
+
+
+function launchGameAfterSetupAndIntroStory () {
+  const launchGameBtn = document.querySelector("#launch-game-play-button")
+  const stickyIconsContainer = document.querySelector("#sticky-icons-container")
+
+  launchGameBtn.addEventListener("click", () => {
+    stickyIconsContainer.style.display = "inline-block";
+})
+  }
+
+launchGameAfterSetupAndIntroStory();
+
+
+
 
   tutorialButton.addEventListener("click", () => {
     const tutorialContent = document.querySelector("#tutorial-content");
@@ -393,28 +410,29 @@ function currentInfo(){
 function mentalCheck() {
   if (life <= 0)gameOver();
 }
-// function programmingCheck() {
-// switch(day)
-// {
-// case "1:
-// alert ("Day is 15");
-// break;
-// case "30":
-// alert ("Day is 30");
-// break;
-// case "45":
-// alert ("day 45");
-// break;
-// case "60":
-// alert ("");
-// break;
-// case "75":
-// alert ("");
-// break;
-// }
-//   if (programming >= check) return true;
-//   return false;
-// }
+function programmingCheck() {
+  let check = 0;
+  switch(day)
+  {
+  case 15:
+    check = 20
+  break;
+  case 30:
+    check = 45
+  break;
+  case 45:
+    check = 75
+  break;
+  case 60:
+    check = 100
+  break;
+  case 75:
+    check = 120
+  break;
+  }
+  if (programming >= check) return false;
+  return true;
+}
 ///// gameOver should increment the game over counter on the web page and display a game over screen
 function gameOver(){
     
@@ -444,42 +462,60 @@ function gameOver(){
 /////////////testing
 
 /////////////// rendering OPTIONS ////////////////
-function getLearningEvent(){
+function getLearningEvent1(){
     fetch("http://localhost:3000/gameEvents")
       .then(data => data.json())
       .then(function (data){
-        newRandomLearningEvent(data.learning);
+        newRandomLearningEvent1(data.learning);
       }
 )}
 
-function getRelaxEvent(){
-    fetch("http://localhost:3000/gameEvents")
-      .then(data => data.json())
-      .then(function (data){
-        newRandomRelaxEvent(data.relax);
-      }
-)}
-
-function getRandomDayEvent(){
+function getLearningEvent2(){
   fetch("http://localhost:3000/gameEvents")
     .then(data => data.json())
     .then(function (data){
-      if(Math.round(Math.random==0))
-      newRandomLearningEvent(data.learning);
-      else
-      newRandomRelaxEvent(data.relax);
+      newRandomLearningEvent2(data.learning);
     }
 )}
 
-function newRandomLearningEvent(gameData) {
+function getRelaxEvent1(){
+    fetch("http://localhost:3000/gameEvents")
+      .then(data => data.json())
+      .then(function (data){
+        newRandomRelaxEvent1(data.relax);
+      }
+)}
+
+function getRelaxEvent2(){
+  fetch("http://localhost:3000/gameEvents")
+    .then(data => data.json())
+    .then(function (data){
+      newRandomRelaxEvent2(data.relax);
+    }
+)}
+
+////// commenting out random because we are targeting a specific place in HTML to post event info and the function being called are overwriting learning and relax
+
+// function getRandomDayEvent(){
+//   fetch("http://localhost:3000/gameEvents")
+//     .then(data => data.json())
+//     .then(function (data){
+//       if(Math.round(Math.random==0))
+//       newRandomLearningEvent(data.learning);
+//       else
+//       newRandomRelaxEvent(data.relax);
+//     }
+// )}
+
+function newRandomLearningEvent1(gameData) {
   const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
 
     const eventDiv = document.querySelector("#week-option-container-1");//// link div - not to keino
     
-    const eventIcon = document.querySelector("#week-option-icon");
+    const eventIcon = document.querySelector("#week-option-icon-1");
     eventIcon.src = event.image
     
-    const eventTitle = document.querySelector("#week-option-name");
+    const eventTitle = document.querySelector("#week-option-name-1");
     eventTitle.textContent = event.option
 
     console.log(event.option);
@@ -488,30 +524,87 @@ function newRandomLearningEvent(gameData) {
       programming += randomValue(event.high, event.low);
       life -= randomValue(event.high, event.low);
       mentalCheck();
-      if(day%15==0)
-      programmingCheck(day*2-10);
+      const choiceLog = document.querySelector("#choice-history-container")
+      choiceLog.append(eventIcon, eventTitle)
+      if(day%15==0 && programmingCheck())
+        gameOver();
+        console.log(life + "  " + programming);
+        renderDayEvents();
     })
-    allPhasesContainer.append(eventDiv);
   }
 
-  function newRandomRelaxEvent(gameData) {
+  function newRandomLearningEvent2(gameData) {
+    const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+  
+      const eventDiv = document.querySelector("#week-option-container-3");//// link div - not to keino
+      
+      const eventIcon = document.querySelector("#week-option-icon-3");
+      eventIcon.src = event.image
+      
+      const eventTitle = document.querySelector("#week-option-name-3");
+      eventTitle.textContent = event.option
+  
+      console.log(event.option);
+  
+      eventIcon.addEventListener("dblclick", () => {
+        programming += randomValue(event.high, event.low);
+        life -= randomValue(event.high, event.low);
+        mentalCheck();
+        const choiceLog = document.querySelector("#choice-history-container")
+        choiceLog.append(eventIcon, eventTitle)
+        if(day%15==0 && programmingCheck())
+        gameOver();
+        console.log(life + " " + programming);
+        renderDayEvents();
+      })
+    }
+
+  function newRandomRelaxEvent1(gameData) {
     const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
 
-    const eventDiv = document.querySelector("#week-option-container-1");//// link div - not to keino
+    const eventDiv = document.querySelector("#week-option-container-2");//// link div - not to keino
     
-    const eventIcon = document.querySelector("#week-option-icon");
-    eventIcon.src = event.option
+    const eventIcon = document.querySelector("#week-option-icon-2");
+    eventIcon.src = event.image
     
-    const eventTitle = document.querySelector("#week-option-name");
-    eventTitle.textContent = event.name
+    const eventTitle = document.querySelector("#week-option-name-2");
+    eventTitle.textContent = event.option
       
-      eventIcon.addEventListener("dblclick", () => {
+      eventDiv.addEventListener("dblclick", () => {
         life += randomValue(event.high,event.low);
-        if(day%15==0)
-      programmingCheck();
+        const choiceLog = document.querySelector("#choice-history-container")
+        eventDiv.className = "log-style";
+        choiceLog.append(eventTitle)
+        if(day%15==0 && programmingCheck())
+        gameOver();
+        console.log(life + " " + programming)
+        renderDayEvents();
       })
-      allPhasesContainer.append(eventDiv);
     }
+
+    function newRandomRelaxEvent2(gameData) {
+      const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
+  
+      const eventDiv = document.querySelector("#week-option-container-4");//// link div - not to keino
+      
+      const eventIcon = document.querySelector("#week-option-icon-4");
+      eventIcon.src = event.image
+      
+      const eventTitle = document.querySelector("#week-option-name-4");
+      eventTitle.textContent = event.option
+        
+        eventIcon.addEventListener("dblclick", () => {
+          life += randomValue(event.high,event.low);
+          const choiceLog = document.querySelector("#choice-history-container")
+          choiceLog.append(eventIcon, eventTitle)
+          if(day%15==0 && programmingCheck())
+        gameOver();
+        console.log(life + " " + programming)
+        renderDayEvents();
+        })
+        
+      }
+
 // function newRandomEvent(gameData) {
 //   const event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
 //     const eventDiv = document.createElement("div");
@@ -529,9 +622,10 @@ function newRandomLearningEvent(gameData) {
 //   }
   
   function renderDayEvents() {
-  getRelaxEvent();
-  getLearningEvent();
-  getRandomDayEvent();
+  getRelaxEvent1();
+  getRelaxEvent2();
+  getLearningEvent1();
+  getLearningEvent2();
 }
 
 renderDayEvents();
@@ -601,53 +695,78 @@ const choicesHistory = document.querySelector("#game-story")
 
 function launchGame() {
   console.log("Launching");
+  
   const beforeGameViewTitle = document.querySelector("#game-setup > div:nth-child(1)")
-  beforeGameViewTitle.style.display = "none";
+  beforeGameViewTitle.style.display = "inline-block";
+  
   const records = document.querySelector("#top-player-display")
-  records.style.display = "none";
+  records.style.display = "block";
+  
   const beforeGameViewBanner = document.querySelector("#sticky-icons-container")
-  beforeGameViewBanner.style.display = "none";
+  beforeGameViewBanner.style.display = "inline-block";
+  
   const beforeGameViewClass = document.querySelector("#class-setup")
   beforeGameViewClass.style.display = "none";
   document.querySelector("#choice-history-container").style.display = "none";
-  document.querySelector("#all-phases-container").style.display = "inline-block";
+  document.querySelector("#all-phases-container").style.display = "none";
   // const gameNext = document.querySelector("#next-game")
   gameNext.style.display = "block";
   choicesHistory.style.display = "block";
+  
+  document.querySelector("#avatar-setup").style.display = "none";
+  document.querySelector("#class-setup").style.display = "none";
+  document.querySelector("#launch-game-play-button").style.display = "none";
+
+
+
   const launchButton = document.querySelector("#launch-game-play-button");
-  launchButton.style = "display: block;";
+  launchButton.style = "display: none;";
+  
   const gamePhases = document.querySelector("#game-phases-container");
   gamePhases.style = "display: block;";
+
+  const launchStory = document.querySelector("#launch-game");
+    launchStory.style = "display: block;";
   // const afterGame = document.querySelector("#launch-game")
   // afterGame.style = "display: none;";
 }
 
 const backgroundStory = [
   "Welcome to the our Game!",
-  "Step 1",
-  "Step 2 ",
-  "You're Ready!",
+  "Story - Step 1",
+  "Story - Step 2 ",
+  "Lets Go!!",
 ];
 
 const gameNext = document.querySelector("#next-game")
 const gameStart = document.querySelector("#starting-game")
+
+gameStart.addEventListener("click", () => {
+  choicesHistory.style = "display: block;";
+  document.querySelector("#sticky-icons-container").style.display = "block";
+  document.querySelector("#choice-history-container").style.display = "block";
+  document.querySelector("#all-phases-container").style.display = "block";
+  gameNext.style.display = "none"; 
+  gameStart.style.display = "block";
+})
+
 let indexNew = - 1
 gameNext.addEventListener("click", () => {
   console.log("Launching");
   indexNew = (indexNew + 1) % backgroundStory.length;
 
+  const launchGameStoryContainer = document.querySelector("#launch-game")
+
+
   const steps = document.createElement("li");
   steps.textContent = backgroundStory[indexNew];
-  choicesHistory.append(steps);
-  console.log(indexNew);
-  console.log(backgroundStory.length - 1);
+  launchGameStoryContainer.append(steps);
   if (indexNew === backgroundStory.length - 1) {
-    // choicesHistory.style = "display: none;";
-    document.querySelector("#choice-history-container").style.display = "block";
-    document.querySelector("#all-phases-container").style.display = "block";
-    gameNext.style.display = "none"; 
+    gameNext.style.display = "none";
     gameStart.style.display = "block";
   }
+
+  
 })
 
   /// swaps continue button with launch game button after story ends////
@@ -670,9 +789,7 @@ gameNext.addEventListener("click", () => {
 //     }
     
 
-// function randomValue (high, low) {
-//   return Math.round((Math.random() * high)+low);
-// }
-//test
-day = 15;
-programmingCheck();
+function randomValue (high, low) {
+  return Math.floor(Math.random() * (high-low)+low);
+}
+document.querySelector('#name').addEventListener("submit", (e) => e.preventDefault());//prevents the enter button on the name submission from refreshing the page

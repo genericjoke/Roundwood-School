@@ -100,9 +100,7 @@ function renderClassOption(classes) {
 
 /////// helper functions to show one setup section and hide others (avatar/name + class)
 
-const classButtonFromAvatarView = document.querySelector(
-    "#chose-class-from-avatar-view"
-);
+const classButtonFromAvatarView = document.querySelector("#chose-class-from-avatar-view");
 
 classButtonFromAvatarView.addEventListener("click", () => {
     renderClassView();
@@ -114,20 +112,6 @@ classButtonFromAvatarView.addEventListener("click", () => {
     playerName.textContent = nameButton.value
 })
 
-// const nameButtonFromAvatarView = document.querySelector("#chose-name-from-avatar-view")
-// nameButtonFromAvatarView.addEventListener("submit", () => {
-//   console.log("clicked")
-// })
-
-// const homeButtonFromAvatarView = document.querySelector(
-//     "#chose-home-from-avatar-view"
-// );
-// homeButtonFromAvatarView.addEventListener("click", () => {
-//     const homeButtonsDiv = document.querySelector("#main-game-view");
-//     homeButtonsDiv.style = "display: block;";
-//     const avatarSetupDiv = document.querySelector("#avatar-setup");
-//     avatarSetupDiv.style.display = "none";
-// });
 
 const tutorialButtonFromAvatarView = document.querySelector("#chose-tutorial-from-avatar-view");
 
@@ -141,8 +125,7 @@ tutorialButtonFromAvatarView.addEventListener("click",  () => {
     gameContent.style.display = "none";
 });
 
-const avatarButtonFromClassView = document.querySelector(
-    "#go-back-to-avatar-from-class-view"
+const avatarButtonFromClassView = document.querySelector("#go-back-to-avatar-from-class-view"
 );
 avatarButtonFromClassView.addEventListener("click", () => {
     renderAvatarView();
@@ -160,7 +143,6 @@ function renderClassView() {
     const avatarSetupDiv = document.querySelector("#avatar-setup");
     avatarSetupDiv.style.display = "none";
 }
-
 function renderAvatarView() {
   const avatarSetupDiv = document.querySelector("#avatar-setup");
   avatarSetupDiv.style.display = "block";
@@ -275,6 +257,7 @@ const ava5 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-05.png";
 const ava6 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-06.png";
 const ava7 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png";
 const ava8 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png";
+
 function avatarSetup() {
   const avatarDiv = document.querySelector("#avatar-setup");
   avatarDiv.style = "display: block;";
@@ -438,29 +421,6 @@ function gameOver(){
     
 }
 
-//////////EVENTS//////////////
-// function getLearningEvent(){
-//     fetch("http://localhost:3000/gameEvents")
-//       .then(data => data.json())
-//       .then(function (data){
-//         return randomLearningEvent(data.learning);
-//       }
-// )
-// }
-
-
-// function randomLearningEvent(gameData) {
-//     console.log(gameData[Math.round(Math.random() * (gameData.length - 1))]);
-// }
-
-// function getRelaxEvent(){
-//   fetch("http://localhost:3000/gameEvents")
-//     .then(data => data.json())
-//     .then(data => (randomEvent(data.relax)));
-// }
-
-/////////////testing
-
 /////////////// rendering OPTIONS ////////////////
 function getLearningEvent1(){
     fetch("http://localhost:3000/gameEvents")
@@ -518,17 +478,25 @@ function newRandomLearningEvent1(gameData) {
     const eventTitle = document.querySelector("#week-option-name-1");
     eventTitle.textContent = event.option
 
-    console.log(event.option);
 
-    eventIcon.addEventListener("dblclick", () => {
+    eventDiv.addEventListener("dblclick", () => {
       programming += randomValue(event.high, event.low);
       life -= randomValue(event.high, event.low);
       mentalCheck();
-      const choiceLog = document.querySelector("#choice-history-container")
-      choiceLog.append(eventIcon, eventTitle)
+      const choiceLogCopy = document.createElement("div");
+        choiceLogCopy.className = "log-style"
+        const imageCopy = document.createElement("img");
+        imageCopy.src = event.image;
+        imageCopy.className = "event-avatar"
+        const titleCopy = document.createElement("h3");
+        titleCopy.textContent = event.option;
+        choiceLogCopy.append(titleCopy, imageCopy)
+        document.querySelector("#choice-div").append(choiceLogCopy);
       if(day%15==0 && programmingCheck())
         gameOver();
         console.log(life + "  " + programming);
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
+        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
         renderDayEvents();
     })
   }
@@ -544,17 +512,24 @@ function newRandomLearningEvent1(gameData) {
       const eventTitle = document.querySelector("#week-option-name-3");
       eventTitle.textContent = event.option
   
-      console.log(event.option);
-  
-      eventIcon.addEventListener("dblclick", () => {
+      eventDiv.addEventListener("dblclick", () => {
         programming += randomValue(event.high, event.low);
         life -= randomValue(event.high, event.low);
         mentalCheck();
-        const choiceLog = document.querySelector("#choice-history-container")
-        choiceLog.append(eventIcon, eventTitle)
+        const choiceLogCopy = document.createElement("div");
+        choiceLogCopy.className = "log-style"
+        const imageCopy = document.createElement("img");
+        imageCopy.src = event.image;
+        imageCopy.className = "event-avatar"
+        const titleCopy = document.createElement("h3");
+        titleCopy.textContent = event.option;
+        choiceLogCopy.append(titleCopy, imageCopy)
+        document.querySelector("#choice-div").append(choiceLogCopy);
         if(day%15==0 && programmingCheck())
         gameOver();
         console.log(life + " " + programming);
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
+        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
         renderDayEvents();
       })
     }
@@ -572,12 +547,20 @@ function newRandomLearningEvent1(gameData) {
       
       eventDiv.addEventListener("dblclick", () => {
         life += randomValue(event.high,event.low);
-        const choiceLog = document.querySelector("#choice-history-container")
-        eventDiv.className = "log-style";
-        choiceLog.append(eventTitle)
+        const choiceLogCopy = document.createElement("div");
+        choiceLogCopy.className = "log-style"
+        const imageCopy = document.createElement("img");
+        imageCopy.src = event.image;
+        imageCopy.className = "event-avatar"
+        const titleCopy = document.createElement("h3");
+        titleCopy.textContent = event.option;
+        choiceLogCopy.append(titleCopy, imageCopy)
+        document.querySelector("#choice-div").append(choiceLogCopy);
         if(day%15==0 && programmingCheck())
         gameOver();
         console.log(life + " " + programming)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
+        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
         renderDayEvents();
       })
     }
@@ -592,14 +575,25 @@ function newRandomLearningEvent1(gameData) {
       
       const eventTitle = document.querySelector("#week-option-name-4");
       eventTitle.textContent = event.option
-        
-        eventIcon.addEventListener("dblclick", () => {
+
+      const choiceLogCopy = document.createElement("div");
+      choiceLogCopy.className = "log-style"
+      const imageCopy = document.createElement("img");
+      imageCopy.src = event.image;
+      imageCopy.className = "event-avatar"
+      const titleCopy = document.createElement("h3");
+      titleCopy.textContent = event.option;
+      choiceLogCopy.append(titleCopy, imageCopy)
+      
+        eventDiv.addEventListener("dblclick", () => {
           life += randomValue(event.high,event.low);
-          const choiceLog = document.querySelector("#choice-history-container")
-          choiceLog.append(eventIcon, eventTitle)
+        document.querySelector("#choice-div").append(choiceLogCopy);
           if(day%15==0 && programmingCheck())
         gameOver();
+        
         console.log(life + " " + programming)
+        document.querySelector("#programing-in-stats-container").textContent.replace(/[0-9]/g, `${programming}`)
+        document.querySelector("#burnout-in-stats-container-Burnout").textContent.replace(/[0-9]/g, `${life}`)
         renderDayEvents();
         })
         
@@ -620,7 +614,8 @@ function newRandomLearningEvent1(gameData) {
 //     })
 //     allPhasesContainer.append(eventDiv);
 //   }
-  
+ 
+
   function renderDayEvents() {
   getRelaxEvent1();
   getRelaxEvent2();
@@ -746,6 +741,7 @@ gameStart.addEventListener("click", () => {
   document.querySelector("#sticky-icons-container").style.display = "block";
   document.querySelector("#choice-history-container").style.display = "block";
   document.querySelector("#all-phases-container").style.display = "block";
+  document.querySelector("#launch-game").style.display = "none";
   gameNext.style.display = "none"; 
   gameStart.style.display = "block";
 })
@@ -793,3 +789,5 @@ function randomValue (high, low) {
   return Math.floor(Math.random() * (high-low)+low);
 }
 document.querySelector('#name').addEventListener("submit", (e) => e.preventDefault());//prevents the enter button on the name submission from refreshing the page
+
+//document.querySelector("#programing-in-stats-container")

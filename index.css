@@ -11,10 +11,14 @@ html {
 }
 
 body {
+
     display: flex;
-	background: linear-gradient(-45deg, #cfbfba, #cab4bd, #c2d0d4, #b7c9c4);
-	background-size: 400% 400%;
-	animation: gradient 80s ease infinite;
+	/* background: linear-gradient(-45deg, #cfbfba, #cab4bd, #c2d0d4, #b7c9c4); */
+	/* animation: gradient 80s ease infinite; */
+    /* background-color:rgba(22, 28, 28, 0.937); */
+    /* background-color: rgba(0, 128, 128, 0.599); */
+    background-color: rgb(232, 178, 30);
+    background-size: 100% 100%;
 	height: 100vh;
     width: 100%;
     padding:0;
@@ -41,7 +45,151 @@ body {
 #gameplay {
     display: block;
     margin-top: 10%;
-    margin-left: 10%
+    margin-left: 10%;
+    height: 80%;
+
+}
+
+.week-option-div:hover,
+.log-style:hover {
+    transform: scale(1.1);
+}
+
+
+
+.log-title {
+    color:rgb(22, 28, 28); 
+    font-size: 15px;
+    margin:0;
+    margin-bottom:5px;
+    margin-top: 5px;
+}
+
+.log-message {
+    color:rgb(22, 28, 28);
+    font-size:15px;
+    margin:0;
+    list-style: none;
+}
+
+
+
+
+.log-style  {
+
+    display: inline-block;
+    position: relative;
+    background-color:rgb(4, 179, 179);
+    /* background: linear-gradient(-45deg, #cfbfba, #cab4bd, #13e5b1, #e8c411);
+	animation: gradient 20s ease infinite; */
+    margin: 10px;
+    min-width: 130px;
+    min-height: 220px;
+    align-content: center;
+    border-radius: 25px;
+    max-width: 120px;
+    text-align: center;
+    align-content: top;
+}
+
+
+
+
+#choice-history-container {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.week-option-div  {
+    display: relative;
+    background-color:rgba(22, 28, 28);
+    /* background: linear-gradient(-45deg, #cfbfba, #cab4bd, #13e5b1, #e8c411);
+	animation: gradient 20s ease infinite; */
+    margin: 10px;
+    min-width: 200px;
+    align-content: center;
+    border-radius: 25px
+
+
+    
+    
+}
+
+
+
+
+.home-images-divs {
+    max-height: 80%;
+    height: auto;
+    width: 60%;
+    align-content: center;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0%;
+    padding-top: 0%;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.home-images:hover, #hover-text-t {
+    transform: scale(1.2);
+    border-style:double;
+    border-width: 10px;
+    border-color:teal;
+    display: inline-block;
+}
+
+
+.home-images:hover, #home-text-t {
+    display: inline-block;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.home-images {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+#home-images:hover {
+    transform: scale(1.1);
 }
 
 #game-view {
@@ -54,22 +202,51 @@ body {
     display: inline-block;
     position: relative;
     height: 100%;
-    width: 80%;
+    width: 87%;
     padding: 0;
-    margin: 0;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+#game-phase-container {
+    
+    width: 87%;
+    margin: 5px;
+    padding:5px;
 }
 
 .testing-display {
     border-style: groove;
-    border-color:rgba(22, 28, 28, 0.664);
+    border-color:rgb(235, 187, 57);
     border-radius: 25px;
-    margin: 5px;
-    padding: 5px;
-    height: 40%;
-    width: 40%;
-    text-align: center;
+    color: black
 }
 
+
+
+
+
+#choice-history-container, #sticky-icons-container {
+display: inline-block;
+min-width: 100%;
+min-height: 20px;
+padding: 0;
+margin: 0;
+max-height: 250px;
+vertical-align: middle;
+
+
+}
+
+#game-stats-container {
+    display: inline-block;
+    position: relative;
+    /* min-width: 300px;
+    min-height: 120px; */
+    width: 40%;
+    margin-top: 1vh;
+}
 
 .container {
     margin: 1%;
@@ -110,6 +287,7 @@ body {
 }
 
 
+
 #avatar-options,
 #class-options
 {
@@ -131,6 +309,7 @@ body {
     vertical-align: middle;
     scroll-snap-type: proximity;
     scroll-snap-align: start;
+    margin: 3px;
 }
 
 #chosen-avatar-container,
@@ -141,6 +320,10 @@ body {
     width: auto;
     padding: 1px;
     vertical-align: middle;
+    height: 10%;
+    margin-top: 1%;
+    text-align: center;
+    list-style: none;
 }
 
 #chosen-avatar-icon,
@@ -151,21 +334,21 @@ body {
     height: auto;
 }
 
-.avatar-op, .class-op {
+.avatar-op, .class-op, .sticky-icon {
     display: inline-block;
     position: relative;
     height: 8rem;
     width: 8rem;
     margin: .5rem;
     border-radius: 30px;
-    background-color: rgb(235, 187, 57);
+    background-color: rgba(22, 28, 28, 0.881);
     margin-bottom: 0.3rem;
     box-shadow: 0 10px 15px rgba(0,0,0,0.2);
     scroll-snap-type: proximity;
     scroll-snap-align: center;
 }
 
-#button-div {
+#avatar-button-div, #class-button-div {
     vertical-align: middle;
     padding:0;
     width:auto;
@@ -183,8 +366,8 @@ body {
 {
     display: inline;
     position: relative;
-    width: 90%;
-    margin: 0;
+    width: 100%;
+    margin-top: 40px;
     padding: 0;
 }
 
@@ -194,30 +377,97 @@ body {
     width: 100%;
     margin: auto;
     margin-top:20px;
-    background-color:rgb(235, 187, 57);
+    background-color:rgba(22, 28, 28, 0.937);
     border-radius: 31px;
     box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    padding: 0; 
 }
 
 
 .top-five-player {
-    font-size: 12px;
+    font-size: 20px;
     position: relative;
     display: inline-block;
     text-align: left;
-    color:rgba(22, 28, 28, 0.937); 
+    color:rgba(11, 192, 192, 0.937); 
     list-style: none;
     margin-left: 10px;
 
 }
 
-.avatar {
+
+
+
+
+.avatar, .event-avatar {
     display: inline-block;
     position: relative;
     height: 100px;
     width: 100px;
     margin: 0rem;
     border-radius: 30px;
-    background-color: rgb(235, 187, 57);
+    background-color: rgba(22, 28, 28, 0.937);
 
 }
+
+.tutorial-button {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    width: 150px;
+    padding: 12px;
+    border-radius: 20px;
+    color: white;
+    border: 3px solid #284cff;
+    cursor: pointer;
+    background: transparent;
+    background-image: url('https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871');
+    background-repeat: repeat-x;
+    background-position: 0 -100%;
+    transition: 1.5s ease;
+    filter: hue-rotate(0deg);
+  }
+
+  .tutorial-button:hover {
+    background-position: center;
+  }
+
+  .play-button, #launch-game-play-button {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center; 
+    width: 100%; 
+    padding: 12px;
+    border-radius: 20px;
+    color:rgb(22, 28, 28) ;
+    border: 3px solid teal;
+    cursor: pointer;
+    background: transparent;
+    background-image: url('https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871');
+    background-repeat: repeat-x;
+    background-position: 0 -100%;
+    transition: 1.5s ease;
+    filter: hue-rotate(0deg);
+    
+    
+    /* max-height: 80%;
+    height: auto;
+    width: 60%;
+    align-content: center;
+    align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 0%;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-bottom: 50px; */
+  }
+
+  .play-button:hover {
+    background-position: center;
+  }

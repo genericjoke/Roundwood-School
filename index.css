@@ -106,11 +106,9 @@ body {
     /* background: linear-gradient(-45deg, #cfbfba, #cab4bd, #13e5b1, #e8c411);
 	animation: gradient 20s ease infinite; */
     margin: 10px;
-    min-width: 200px;
+    min-width: 150px;
     align-content: center;
-    border-radius: 25px
-
-
+    border-radius: 25px;
     
     
 }
@@ -135,7 +133,7 @@ body {
 
 .home-images:hover, #hover-text-t {
     transform: scale(1.2);
-    border-style:double;
+    border-style:solid;
     border-width: 10px;
     border-color:teal;
     display: inline-block;
@@ -144,7 +142,7 @@ body {
 
 .home-images:hover, #home-text-t {
     display: inline-block;
-    animation: shake 0.5s;
+    animation: shake 1.5s;
     animation-iteration-count: infinite;
 }
 
@@ -217,10 +215,10 @@ body {
 }
 
 .testing-display {
-    border-style: groove;
-    border-color:rgb(235, 187, 57);
+    border-style: solid;
+    border-color:rgb(22, 28, 28,.664);
     border-radius: 25px;
-    color: black
+    color:rgb(22, 28, 28);
 }
 
 

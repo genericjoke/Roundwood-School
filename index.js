@@ -250,6 +250,8 @@ const ava6 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-06.png";
 const ava7 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png";
 const ava8 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png";
 const ava9 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-09.png";
+const ava10 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-10.png";
+const ava11 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-11.png";
 
 function avatarSetup() {
   const avatarDiv = document.querySelector("#avatar-setup");
@@ -320,15 +322,31 @@ function avatarSetup() {
   div8.append(avatar8);
 
   const div9 = document.createElement("div");
-  div8.className = "avatar-div";
+  div9.className = "avatar-div";
   const avatar9 = document.createElement("img");
-  avatar8.setAttribute("src", ava8);
-  avatar8.setAttribute("id", "avatar9");
-  avatar8.setAttribute("class", "avatar-op");
-  div8.append(avatar9);
+  avatar9.setAttribute("src", ava9);
+  avatar9.setAttribute("id", "avatar9");
+  avatar9.setAttribute("class", "avatar-op");
+  div9.append(avatar9);
+
+  const div10 = document.createElement("div");
+  div10.className = "avatar-div";
+  const avatar10 = document.createElement("img");
+  avatar10.setAttribute("src", ava10);
+  avatar10.setAttribute("id", "avatar10");
+  avatar10.setAttribute("class", "avatar-op");
+  div10.append(avatar10);
+
+  const div11 = document.createElement("div");
+  div11.className = "avatar-div";
+  const avatar11 = document.createElement("img");
+  avatar11.setAttribute("src", ava11);
+  avatar11.setAttribute("id", "avatar11");
+  avatar11.setAttribute("class", "avatar-op");
+  div10.append(avatar11);
 
   const avatarOptions = document.querySelector("#avatar-options");
-  avatarOptions.append(div9, div8, div7, div6, div5, div4, div3, div2, div1);
+  avatarOptions.append(div11, div10, div9, div8, div7, div6, div5, div4, div3, div2, div1);
 }
 avatarSetup();
 function renderChosenAvatar() {
@@ -624,12 +642,12 @@ document.addEventListener('keydown', async(e)=>{
   const synth = new Tone.Synth().toDestination();
   const now = Tone.now()
   synth.triggerAttackRelease("E4","4n.", now)
-  synth.triggerAttackRelease("E4","4n", now+.5)
-  synth.triggerAttackRelease("G4","4n.", now+.75)
-  synth.triggerAttackRelease("E4","4n", now+1)
-  synth.triggerAttackRelease("D4","4n", now+1.25)
-  synth.triggerAttackRelease("C4","2n", now+1.5)
-  synth.triggerAttackRelease("B3","2n", now+1.75)}
+  synth.triggerAttackRelease("E4","4n", now+.75)
+  synth.triggerAttackRelease("G4","4n.", now+1)
+  synth.triggerAttackRelease("E4","4n", now+1.4)
+  synth.triggerAttackRelease("D4","4n", now+1.75)
+  synth.triggerAttackRelease("C4","2n", now+2)
+  synth.triggerAttackRelease("B3","2n", now+3 )}
 })
 
 ////////////////////////////// Launching Game Screen //////////////////////////////
@@ -766,9 +784,16 @@ function gameOver() {
   const loseImg = document.createElement("img");
   loseImg.src = "https://t4.ftcdn.net/jpg/03/34/11/39/360_F_334113986_zAt0T3AjRnJ1TfO9u0u5WWekjiO0Fht5.jpg"
   loseImg.alt="You lose, good day sir! I SAID GOOD DAY!"
+  loseImg.style.textAlign = "center";
+  loseImg.style.display = "inline-block";
   const loseText = document.createElement('p')
-  loseText = "It's all there! Black and white, clear as crystal! You stole from the mafia! You bumped into Roundwood School, which now has to be washed and sterilized, so you GET... NOTHING! YOU LOSE! GOOD DAY, SIR!"
-  document.querySelector("body").append(loseImg, loseText);
+  loseText.textContent = "It's all there! Black and white, clear as crystal! You stole from the mafia! You bumped into Roundwood School, which now has to be washed and sterilized, so you GET... NOTHING! YOU LOSE! GOOD DAY, SIR!"
+  const body = document.querySelector("body")
+  body.append(loseImg, loseText);
+  body.style.backgroundColor = "black";
+  body.style.textAlign = "center";
+  body.style.color = "white";
+  body.style. fontsize = "200px";
 }
 
 //const playerName = document.querySelector("#player-name-under-avatar")

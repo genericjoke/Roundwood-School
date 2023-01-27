@@ -157,15 +157,6 @@
       "id": "E8iQWaP"
     },
     {
-      "name": "",
-      "image": "https://genericjoke.github.io/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png",
-      "score": 103,
-      "prog": 32,
-      "bo": 71,
-      "classImage": "https://genericjoke.github.io/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-07.png",
-      "id": "h4VtjrI"
-    },
-    {
       "name": "Areeb ",
       "image": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-04.png",
       "score": 76,
@@ -175,15 +166,6 @@
       "id": "fo1dsvD"
     },
     {
-      "name": " Name ",
-      "image": "https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg",
-      "score": 78,
-      "prog": 49,
-      "bo": 29,
-      "classImage": "https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg",
-      "id": "fTxfZHB"
-    },
-    {
       "name": "Keino",
       "image": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-10.png",
       "score": 135,
@@ -191,6 +173,15 @@
       "bo": 112,
       "classImage": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-10.png",
       "id": "tfZaHwX"
+    },
+    {
+      "name": "Keino",
+      "image": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-10.png",
+      "score": 157,
+      "prog": 25,
+      "bo": 132,
+      "classImage": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-10.png",
+      "id": "Czik6P4"
     }
   ]
 }

@@ -159,6 +159,7 @@ function getHomeButton() {
   // homeDiv.append(tutorialButton, playButton);
 
   launchFromHome.addEventListener("click", () => {
+    
     const launchGame = document.querySelector("#gameplay");
     launchGame.style = "display: block;";
     const setupGame = document.querySelector("#game-setup");
@@ -169,6 +170,8 @@ function getHomeButton() {
     homeDiv.style.display = "none";
     launchFromHome.style = "display: none;";
     tutorialFromHome.style = "display: none;";
+    document.querySelector("#tutorial-txt").style.display = "none";
+    document.querySelector("#first-text").style.display = "none";
     // const launchButton = document.querySelector("#launch-game-play-button");
     // launchButton.style = "display: none;";
     const gamePhases = document.querySelector("#game-phases-container");
@@ -198,6 +201,13 @@ launchGameAfterSetupAndIntroStory();
     homeButtonsDiv.style = "display: none;";
     launchFromHome.style = "display: none;";
     tutorialFromHome.style = "display: none;";
+    // const homePrompt1 = document.querySelectorAll("#tutorial-from-home");
+    // homePrompt1.style = "display: none;"
+    // document.querySelector("#first-text").style = "display: none;";
+    // document.querySelector("#tutorial-txt").textContent.style.display = "none";
+    // document.querySelector("#first-text").style.display = "none";
+    document.querySelector("#tutorial-from-home").style.display = "none";
+    document.querySelector("#launch-from-home").style.display = "none";
   });
 }
 
@@ -206,8 +216,12 @@ launchGameAfterSetupAndIntroStory();
 ///step by step tutorial goes in this array
 const tutorialStory = [
   "Welcome to the Tutorial!",
-  "Step 1",
-  "Step 2 ",
+  "You have a Programming stat, and a Life stat. If your Life stat hits zero you lose"
+  ,"and if you fail a programming project you lose.",
+  "To Increase your programming, you must do tasks like study,",
+  "and to increase you life, you must relax. As you program more you loe life so be sure to watch it.",
+  "To select an event you need to double click it.",
+  "Every 15 days, you will do a programming project. Good Luck!!!",
   "You're Ready!",
 ];
 
@@ -219,6 +233,8 @@ launchAfterTutorial.addEventListener("click", () => {
   gameSetupDiv.style = "display: block;";
   const tutorialContent = document.querySelector("#tutorial-content");
   tutorialContent.style = "display: none;";
+  document.querySelector("#id").style.display = "none";
+  document.querySelector("#first-text").style.display = "none";
   renderAvatarView();
 });
 
@@ -252,6 +268,11 @@ const ava8 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-08.png";
 const ava9 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-09.png";
 const ava10 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-10.png";
 const ava11 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-11.png";
+const ava12 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-12.png";
+const ava13 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-13.png";
+const ava14 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-14.png";
+const ava15 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-15.png";
+const ava16 = "/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-16.png";
 
 function avatarSetup() {
   const avatarDiv = document.querySelector("#avatar-setup");
@@ -343,10 +364,50 @@ function avatarSetup() {
   avatar11.setAttribute("src", ava11);
   avatar11.setAttribute("id", "avatar11");
   avatar11.setAttribute("class", "avatar-op");
-  div10.append(avatar11);
+  div11.append(avatar11);
+
+  const div12 = document.createElement("div");
+  div12.className = "avatar-div";
+  const avatar12 = document.createElement("img");
+  avatar12.setAttribute("src", ava12);
+  avatar12.setAttribute("id", "avatar12");
+  avatar12.setAttribute("class", "avatar-op");
+  div12.append(avatar12);
+
+  const div13 = document.createElement("div");
+  div13.className = "avatar-div";
+  const avatar13 = document.createElement("img");
+  avatar13.setAttribute("src", ava13);
+  avatar13.setAttribute("id", "avatar13");
+  avatar13.setAttribute("class", "avatar-op");
+  div13.append(avatar13);
+
+  const div14 = document.createElement("div");
+  div14.className = "avatar-div";
+  const avatar14 = document.createElement("img");
+  avatar14.setAttribute("src", ava14);
+  avatar14.setAttribute("id", "avatar14");
+  avatar14.setAttribute("class", "avatar-op");
+  div14.append(avatar14);
+
+  const div15 = document.createElement("div");
+  div15.className = "avatar-div";
+  const avatar15 = document.createElement("img");
+  avatar15.setAttribute("src", ava15);
+  avatar15.setAttribute("id", "avatar15");
+  avatar15.setAttribute("class", "avatar-op");
+  div15.append(avatar15);
+
+  const div16 = document.createElement("div");
+  div16.className = "avatar-div";
+  const avatar16 = document.createElement("img");
+  avatar16.setAttribute("src", ava16);
+  avatar16.setAttribute("id", "avatar16");
+  avatar16.setAttribute("class", "avatar-op");
+  div16.append(avatar16);
 
   const avatarOptions = document.querySelector("#avatar-options");
-  avatarOptions.append(div11, div10, div9, div8, div7, div6, div5, div4, div3, div2, div1);
+  avatarOptions.append(div16,div15,div14,div13,div12,div11, div10, div9, div8, div7, div6, div5, div4, div3, div2, div1);
 }
 avatarSetup();
 function renderChosenAvatar() {
@@ -530,6 +591,10 @@ function newRandomLearningEvent1(gameData) {
         imageCopy.src = event.image;
         imageCopy.className = "event-avatar"
         const titleCopy = document.createElement("h3");
+        
+        const message = document.createElement("li");
+        message.textContent = event.text;
+        message.className = "log-message";
 
         titleCopy.textContent = event.option;
         choiceLogCopy.append(titleCopy, imageCopy)
@@ -563,16 +628,23 @@ function newRandomLearningEvent1(gameData) {
       eventDiv.addEventListener("dblclick", () => {
         day++
         life += parseInt(event.high) + parseInt(event.low);
+
         const choiceLogCopy = document.createElement("div");
         choiceLogCopy.className = "log-style"
         const imageCopy = document.createElement("img");
+
         imageCopy.src = event.image;
         imageCopy.className = "event-avatar"
         const titleCopy = document.createElement("h3");
+
         titleCopy.textContent = event.option;
         choiceLogCopy.append(titleCopy, imageCopy)
         document.querySelector("#choice-div").append(choiceLogCopy);
         
+        const message = document.createElement("li");
+        message.textContent = event.text;
+        message.className = "log-message";
+
         event = (gameData[Math.round(Math.random() * (gameData.length - 1))]);
         eventIcon.src = event.image
         eventTitle.textContent = event.option
@@ -607,6 +679,10 @@ function newRandomLearningEvent1(gameData) {
       imageCopy.src = event.image;
       imageCopy.className = "event-avatar"
       const titleCopy = document.createElement("h3");
+      
+      const message = document.createElement("li");
+      message.textContent = event.text;
+      message.className = "log-message";
       titleCopy.textContent = event.option;
       choiceLogCopy.append(titleCopy, imageCopy)
       document.querySelector("#choice-div").append(choiceLogCopy);
@@ -697,8 +773,10 @@ function launchGame() {
 
 const backgroundStory = [
   "Welcome to the our Game!",
-  "Story - Step 1",
-  "Story - Step 2 ",
+  "You just got accepted to Roundwood School",
+  "You weren't able to afford it however, so you needed to take a loan out.",
+  "Your credit sucks though. You went to the only place you knew to help.",
+  "The Mafia. You must finish school or else the mafia will have you sleeping with the fishes!",
   "Lets Go!!",
 ];
 

@@ -182,6 +182,42 @@
       "bo": 132,
       "classImage": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-10.png",
       "id": "Czik6P4"
+    },
+    {
+      "name": "asdasdas",
+      "image": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-02.png",
+      "score": 79,
+      "prog": 56,
+      "bo": 23,
+      "classImage": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-02.png",
+      "id": "uevLF-7"
+    },
+    {
+      "name": "Michael Justin Ugochiyem Elue ",
+      "image": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-02.png",
+      "score": 121,
+      "prog": 34,
+      "bo": 87,
+      "classImage": "http://localhost:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-02.png",
+      "id": "mEk17nP"
+    },
+    {
+      "name": "Keino",
+      "image": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-16.png",
+      "score": 125,
+      "prog": 29,
+      "bo": 96,
+      "classImage": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-16.png",
+      "id": "KKWyGBM"
+    },
+    {
+      "name": "Keino",
+      "image": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-12.png",
+      "score": 151,
+      "prog": 21,
+      "bo": 130,
+      "classImage": "http://127.0.0.1:5501/Player-Avatars/Artboards_Diversity_Avatars_by_Netguru-12.png",
+      "id": "lhdpumS"
     }
   ]
 }

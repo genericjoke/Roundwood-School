@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "tone": "^14.8.49"
+    "tone": "^14.8.49",
+    "start": "index.js"
   }
 }

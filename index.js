@@ -94,7 +94,7 @@ classButtonFromAvatarView.addEventListener("click", () => {
     renderChosenClass();
     
     const playerName = document.querySelector("#player-name-under-avatar") 
-   
+    
     const nameButton = document.querySelector("#name-button")
     playerName.textContent = nameButton.value
 })

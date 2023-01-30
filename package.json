@@ -2,5 +2,23 @@
   "dependencies": {
     "tone": "^14.8.49",
     "start": "index.js"
-  }
+  },
+  "name": "roundwood-school",
+  "version": "1.0.0",
+  "description": "roundwood shcool app",
+  "main": "index.html",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genericjoke/Roundwood-School.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genericjoke/Roundwood-School/issues"
+  },
+  "homepage": "https://github.com/genericjoke/Roundwood-School#readme"
 }
